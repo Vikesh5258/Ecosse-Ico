@@ -133,7 +133,7 @@ const LandingHero = () => {
 
     return (
         <>
-            <section
+            <section id='home'
                 className="w-full bg-[#f9f8f6] bg-cover bg-center py-12 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
                 style={{ backgroundImage: `url(${topBg})` }}
             >
@@ -266,7 +266,7 @@ const LandingHero = () => {
 
                     {/* Right Coin Side */}
                     <div className="lg:col-span-5 flex justify-center lg:justify-center items-center">
-                        <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full aspect-square drop-shadow-[0_20px_50px_rgba(140,90,60,0.3)] transition-transform lg:-translate-x-8 xl:-translate-x-14 hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
+                        <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full aspect-square transition-transform lg:-translate-x-8 xl:-translate-x-14 hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
                             <video
                                 src={coinVideo}
                                 poster={mainCoin}
@@ -430,7 +430,7 @@ const LandingHero = () => {
 
                     {/* Left Side Coin Video */}
                     <div className="flex justify-center md:justify-end">
-                        <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full aspect-square drop-shadow-[0_20px_50px_rgba(140,90,60,0.3)] transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
+                        <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full aspect-square transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
                             <video
                                 src={coinVideo}
                                 poster={mainCoin}
@@ -589,10 +589,8 @@ const LandingHero = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Issuance ratios */}
-                    <div className="bg-[#FDE8D5] rounded-[24px] p-8 mb-4 shadow-sm">
+                    </div>                    {/* Issuance ratios */}
+                    <div className="bg-[#FDE8D5] rounded-[24px] p-6 sm:p-8 mb-4 shadow-sm">
                         <div className="mb-10 flex flex-col items-start gap-4">
                             <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
                                 <img
@@ -605,42 +603,54 @@ const LandingHero = () => {
                         </div>
 
                         <div className="space-y-8">
-                            <div className="flex items-center justify-between text-sm md:text-[15px]">
-                                <div className="w-24 md:w-40 text-[#595959] text-[20px] tracking-[0.2em]">1 LPA</div>
-                                <div className="flex-1 mx-4 md:mx-8 h-2.5 bg-[#EBD8C8] rounded-full overflow-hidden flex h-[16px]">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 text-sm md:text-[15px]">
+                                <div className="flex justify-between items-center w-full sm:w-auto">
+                                    <div className="text-[#595959] text-[16px] sm:text-[20px] tracking-[0.15em] sm:tracking-[0.2em] w-auto sm:w-24 md:w-40 font-medium">1 LPA</div>
+                                    <div className="sm:hidden text-right text-[#595959] text-[16px] font-semibold tracking-[0.15em]">1M tokens</div>
+                                </div>
+                                <div className="w-full sm:flex-1 sm:mx-4 md:mx-8 h-3 sm:h-[16px] bg-[#EBD8C8] rounded-full overflow-hidden flex">
                                     <div className="h-full bg-[#1A1A1A] w-[15%]"></div>
                                 </div>
-                                <div className="w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em]">1M tokens</div>
+                                <div className="hidden sm:block w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em] text-[15px] sm:text-[20px]">1M tokens</div>
                             </div>
 
-                            <div className="flex items-center justify-between text-sm md:text-[15px]">
-                                <div className="w-24 md:w-40 text-[#595959] text-[20px] tracking-[0.2em]">Per cask (exit)</div>
-                                <div className="flex-1 mx-4 md:mx-8 h-2.5 bg-[#EBD8C8] rounded-full overflow-hidden flex h-[16px]">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 text-sm md:text-[15px]">
+                                <div className="flex justify-between items-center w-full sm:w-auto">
+                                    <div className="text-[#595959] text-[16px] sm:text-[20px] tracking-[0.15em] sm:tracking-[0.2em] w-auto sm:w-24 md:w-40 font-medium">Per cask (exit)</div>
+                                    <div className="sm:hidden text-right text-[#595959] text-[16px] font-semibold tracking-[0.15em]">131.26M tokens</div>
+                                </div>
+                                <div className="w-full sm:flex-1 sm:mx-4 md:mx-8 h-3 sm:h-[16px] bg-[#EBD8C8] rounded-full overflow-hidden flex">
                                     <div className="h-full bg-[#1A1A1A] w-[35%]"></div>
                                 </div>
-                                <div className="w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em]">131.26M tokens</div>
+                                <div className="hidden sm:block w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em] text-[15px] sm:text-[20px]">131.26M tokens</div>
                             </div>
 
-                            <div className="flex items-center justify-between text-sm md:text-[15px]">
-                                <div className="w-24 md:w-40 text-[#595959] text-[20px] tracking-[0.2em]">1,000-cask<br />batch</div>
-                                <div className="flex-1 mx-4 md:mx-8 h-2.5 bg-[#EBD8C8] rounded-full overflow-hidden flex h-[16px]">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 text-sm md:text-[15px]">
+                                <div className="flex justify-between items-center w-full sm:w-auto">
+                                    <div className="text-[#595959] text-[16px] sm:text-[20px] tracking-[0.15em] sm:tracking-[0.2em] w-auto sm:w-24 md:w-40 font-medium">1,000-cask<br className="hidden sm:block" /> batch</div>
+                                    <div className="sm:hidden text-right text-[#595959] text-[16px] font-semibold tracking-[0.15em]">131.26B tokens</div>
+                                </div>
+                                <div className="w-full sm:flex-1 sm:mx-4 md:mx-8 h-3 sm:h-[16px] bg-[#EBD8C8] rounded-full overflow-hidden flex">
                                     <div className="h-full bg-[#1A1A1A] w-[65%]"></div>
                                 </div>
-                                <div className="w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em]">131.26B tokens</div>
+                                <div className="hidden sm:block w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em] text-[15px] sm:text-[20px]">131.26B tokens</div>
                             </div>
 
-                            <div className="flex items-center justify-between text-sm md:text-[15px]">
-                                <div className="w-24 md:w-40 text-[#595959] text-[20px] tracking-[0.2em]">Full cycle<br />(7,000)</div>
-                                <div className="flex-1 mx-4 md:mx-8 h-2.5 bg-[#EBD8C8] rounded-full overflow-hidden flex h-[16px]">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 text-sm md:text-[15px]">
+                                <div className="flex justify-between items-center w-full sm:w-auto">
+                                    <div className="text-[#595959] text-[16px] sm:text-[20px] tracking-[0.15em] sm:tracking-[0.2em] w-auto sm:w-24 md:w-40 font-medium">Full cycle<br className="hidden sm:block" /> (7,000)</div>
+                                    <div className="sm:hidden text-right text-[#595959] text-[16px] font-semibold tracking-[0.15em]">918.82B tokens</div>
+                                </div>
+                                <div className="w-full sm:flex-1 sm:mx-4 md:mx-8 h-3 sm:h-[16px] bg-[#EBD8C8] rounded-full overflow-hidden flex">
                                     <div className="h-full bg-[#1A1A1A] w-[100%]"></div>
                                 </div>
-                                <div className="w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em]">918.82B tokens</div>
+                                <div className="hidden sm:block w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em] text-[15px] sm:text-[20px]">918.82B tokens</div>
                             </div>
                         </div>
                     </div>
 
                     {/* Mint & burn mechanism */}
-                    <div className="bg-[#FDE8D5] rounded-[24px] p-8 shadow-sm">
+                    <div className="bg-[#FDE8D5] rounded-[24px] p-6 sm:p-8 shadow-sm">
                         <div className="mb-10 flex flex-col items-start gap-6">
                             <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
                                 <img
@@ -1078,7 +1088,7 @@ const LandingHero = () => {
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Section Header */}
-                    <div className="mb-10 sm:mb-14 md:mb-16 px-[100px]">
+                    <div className="mb-10 sm:mb-14 md:mb-16 px-5 lg:px-[100px]">
                         <h2 className="text-[36px] sm:text-[44px] md:text-[52px] font-black leading-tight tracking-[0.12em] text-[#1E1E1E] mb-3 md:mb-4">
                             FAQs
                         </h2>
@@ -1088,7 +1098,7 @@ const LandingHero = () => {
                     </div>
 
                     {/* Accordion */}
-                    <div className="space-y-4 mb-16 md:mb-20 px-[100px]">
+                    <div className="space-y-4 mb-16 md:mb-20 px-5 lg:px-[100px]">
                         {[
                             {
                                 q: 'What makes ECOSSE different from gold or other commodities?',
@@ -1144,17 +1154,17 @@ const LandingHero = () => {
                     </div>
 
                     {/* Social Icons Row */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-                        <a href="" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2">
+                        <a href=" https://x.com/ECOSSECOIN" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
                             <img src={socialIcon1} alt="X (Twitter)" className="w-5 h-5 sm:w-6 sm:h-6" />
                         </a>
-                        <a href="" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
+                        <a href="https://discord.gg/rB75TMvxA" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
                             <img src={socialIcon2} alt="Discord" className="w-5 h-5 sm:w-6 sm:h-6" />
                         </a>
-                        <a href="" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
+                        <a href="https://www.instagram.com/ecosse_coin/" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
                             <img src={socialIcon3} alt="Instagram" className="w-5 h-5 sm:w-6 sm:h-6" />
                         </a>
-                        <a href="" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
+                        <a href="https://t.me/ecossecoin" className="bg-[#111111] rounded-full py-4 flex items-center justify-center hover:bg-[#222222] transition-colors duration-300">
                             <img src={socialIcon4} alt="Telegram" className="w-5 h-5 sm:w-6 sm:h-6" />
                         </a>
                     </div>

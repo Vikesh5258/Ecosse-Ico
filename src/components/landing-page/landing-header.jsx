@@ -33,7 +33,7 @@ const LandingHeader = () => {
                 <div className="px-4 sm:px-6 lg:px-8 h-[110px] flex items-center justify-between">
 
                 {/* Logo & Title */}
-                <div className="flex items-center gap-3 cursor-pointer">
+                <div onClick={(e) => scrollToSection(e, 'home')} className="flex items-center gap-3 cursor-pointer">
                     {/* Placeholder for the coin logo */}
                     <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
                         <img src={headerImg} alt="Ecosse Coin Logo" className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
@@ -59,7 +59,7 @@ const LandingHeader = () => {
 
                 {/* Desktop Action Button */}
                 <div className="hidden lg:flex items-center">
-                    <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 text-white font-medium px-4 py-2.5 rounded-[8px] shadow-sm transition-all duration-300 text-[15px]">
+                    <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 text-white font-medium px-4 py-2.5 rounded-[8px] shadow-sm transition-all duration-300 text-[15px] cursor-pointer">
                         Get Started 
                     </button>
                 </div>
@@ -85,7 +85,7 @@ const LandingHeader = () => {
             {/* Mobile Dropdown Menu */}
             {isMobileMenuOpen && (
                 <div className="lg:hidden absolute top-[110px] left-0 w-full bg-[#f6f4f0] shadow-md border-t border-gray-200 z-50 flex flex-col px-4 py-6 gap-6 min-h-screen">
-                    <nav className="flex flex-col gap-4">
+                    <nav className="flex flex-col gap-4 text-center">
                         {['About', 'Tokenomics', 'Roadmap', 'Teams', 'FAQ'].map((item) => (
                             <a
                                 key={item}
@@ -97,7 +97,7 @@ const LandingHeader = () => {
                             </a>
                         ))}
                     </nav>
-                    <button className="w-full bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 text-white font-medium px-4 py-3 rounded-[8px] shadow-sm transition-all duration-300 text-[15px]">
+                    <button className="w-[180px] mx-auto bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 text-white font-medium px-4 py-3 rounded-[8px] shadow-sm transition-all duration-300 text-[15px] cursor-pointer">
                         Get Started
                     </button>
                 </div>
