@@ -49,11 +49,18 @@ import people2 from '../../assets/people-2.png';
 import people3 from '../../assets/people-3.png';
 import people4 from '../../assets/people-4.png';
 import people5 from '../../assets/people-5.png';
+import people6 from '../../assets/people-6.png';
 import vectorDecor from '../../assets/Vector.svg';
 import vectorKnot from '../../assets/Vector-2.svg';
 import vectorStar from '../../assets/Vector-3.svg';
 import vectorStar2 from '../../assets/Vector-4.svg';
 import vectorOrnament from '../../assets/Vector-5.svg';
+import team1 from '../../assets/popup-img-1.png';
+import team2 from '../../assets/popup-img-2.png';
+import team3 from '../../assets/popup-img-3.png';
+import team4 from '../../assets/popup-img-4.png';
+import team5 from '../../assets/popup-img-5.png';
+import team6 from '../../assets/popup-img-6.png';
 
 
 const LandingHero = () => {
@@ -67,37 +74,37 @@ const LandingHero = () => {
         rose_foster: {
             name: "Rose Foster",
             role: "Co-Founder / CFO",
-            image: people1,
+            image: team1,
             bio: "Ross Foster is a visionary entrepreneur and Co-Founder of Foster Whisky, bringing together extensive experience in engineering, construction, and luxury development. As CEO of Snowdrop Developments, he has successfully led high-value residential projects across Scotland, earning a reputation for operational excellence and long-term strategic leadership. With a background that includes service in the Royal Navy and global engineering projects, Ross combines discipline, innovation, and business expertise to help drive the vision of the Ecosse Coin ecosystem and its whisky-backed asset model."
         },
         dean_thomson: {
             name: "Dean Thomson",
             role: "Operations Director / Warehouse Manager",
-            image: people2,
+            image: team2,
             bio: "Dean Thomson is a seasoned whisky industry professional and Co-Founder of Foster Whisky, with over a decade of hands-on experience in Scotch whisky production, cask management, maturation, and logistics. Having worked with renowned distilleries including Whyte & Mackay, Dean developed deep expertise across every stage of whisky operations before moving into senior leadership roles within the whisky cask brokerage sector. His extensive industry knowledge and operational insight play a key role in strengthening the authenticity and real-world asset foundation of the Ecosse Coin platform. "
         },
         rose_blease: {
             name: "Rose Blease",
             role: "Expansion / Site Delivery Manager",
-            image: people5,
+            image: team3,
             bio: "Ross Blease is an experienced construction and development professional with over 20 years of industry expertise, progressing from a qualified joiner to Managing Director of Snowdrop Developments UK Limited. With a strong background in residential property development, project management, and operational leadership, he has successfully overseen multiple live developments while maintaining high standards of quality, safety, and delivery. Ross combines hands-on technical knowledge with strategic leadership, bringing valuable operational experience and industry insight to the Ecosse Coin ecosystem and its long-term growth vision."
         },
         mark_stenhouse: {
             name: "Mark Stenhouse",
             role: "Finance Director",
-            image: people4,
+            image: team4,
             bio: "Mark Stenhouse is an accomplished business development professional with over 35 years of experience across the finance, technology, oil, and gas sectors. Throughout his career, he has built strong relationships with high-net-worth individuals, banking institutions, insurance leaders, and major global energy companies including Saudi Aramco, Shell, Total, and Kuwait Oil Company. With extensive international market knowledge and a strong background in strategic growth and commercial development, Mark brings valuable industry expertise and global business connections to the Ecosse Coin ecosystem, supporting its vision of combining premium whisky assets with innovative blockchain technology. "
         },
         charles_mcgregor: {
             name: "Charles McGregor",
             role: "Technical Manager",
-            image: people3,
+            image: team5,
             bio: "Charles McGregor is a highly experienced construction and civil engineering professional with over 20 years of expertise in residential development, infrastructure delivery, and operational leadership. As Managing Director of Snowdrop Developments UK Limited, he has successfully led multi-site developments, managed large civil engineering operations, and delivered projects safely, efficiently, and within budget. His strong technical background, combined with strategic and commercial expertise, has made him a respected leader within the construction industry. Charles is also actively involved in the Ecosse Coin project, a whisky-backed initiative that combines real-world asset value with innovative blockchain technology, further strengthening the project’s industry credibility and long-term vision."
         },
         bek_massie: {
             name: "Rebekah Massie",
             role: "Office Manager",
-            image: people1,
+            image: team6,
             bio: "Rebekah Massie is an experienced operations and administration professional with a strong background in office management, financial coordination, and executive support. As Office Manager at Snowdrop Developments (UK) Ltd, she oversees daily business operations, budgeting, procurement, and organisational processes, ensuring efficiency and compliance across the company. With expertise in team coordination, strategic administration, and operational management, Rebekah brings valuable organisational strength and professional support to the Ecosse Coin ecosystem, contributing to its structured growth and operational excellence."
         }
     };
@@ -544,39 +551,39 @@ const LandingHero = () => {
                                 <h4 className="text-[18px] text-[#1E1E1E] uppercase tracking-[0.2em] mb-6">Allocation</h4>
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#c09172]"></span><span className="font-medium text-[#111111] text-[18px]">Public Sale</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#B88B6F]"></span><span className="font-medium text-[#111111] text-[18px]">Public Sale</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">358,339,800,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(39%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#8e6044]"></span><span className="font-medium text-[#111111] text-[18px]">Private Investors</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#D4A386]"></span><span className="font-medium text-[#111111] text-[18px]">Private Investors</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">183,764,000,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(20%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#65432d]"></span><span className="font-medium text-[#111111] text-[18px]">Treasury</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#8E6248]"></span><span className="font-medium text-[#111111] text-[18px]">Treasury</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">91,882,000,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(10%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#463126]"></span><span className="font-medium text-[#111111] text-[18px]">Team</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#5D4037]"></span><span className="font-medium text-[#111111] text-[18px]">Team</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">91,882,000,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(10%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#30211a]"></span><span className="font-medium text-[#111111] text-[18px]">Liquidity</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#4A4A4A]"></span><span className="font-medium text-[#111111] text-[18px]">Liquidity</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">91,882,000,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(10%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#9e8473]"></span><span className="font-medium text-[#111111] text-[18px]">Ecosystem Growth</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#5E5E5E]"></span><span className="font-medium text-[#111111] text-[18px]">Ecosystem Growth</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">45,941,000,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(5%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#d0c6bf]"></span><span className="font-medium text-[#111111] text-[18px]">Advisors</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#868686]"></span><span className="font-medium text-[#111111] text-[18px]">Advisors</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">27,564,600,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(3%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#e3ded9]"></span><span className="font-medium text-[#111111] text-[18px]">Marketing</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#AEAEAE]"></span><span className="font-medium text-[#111111] text-[18px]">Marketing</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">18,376,400,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(2%)</span></div>
                                     </div>
                                     <div className="flex justify-between items-center text-sm md:text-[15px]">
-                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#cfd8dc]"></span><span className="font-medium text-[#111111] text-[18px]">Burn Reserve Wallet</span></div>
+                                        <div className="flex items-center gap-3"><span className="w-2.5 h-2.5 rounded-full bg-[#CCCCCC]"></span><span className="font-medium text-[#111111] text-[18px]">Burn Reserve Wallet</span></div>
                                         <div className="flex items-center gap-6"><span className="text-[#1E1E1E] font-medium hidden sm:block text-[18px] tracking-[0.02em]">9,188,200,000 Tokens</span><span className="font-bold text-[#111111] w-12 text-right text-[18px]">(1%)</span></div>
                                     </div>
                                 </div>
@@ -1009,15 +1016,15 @@ const LandingHero = () => {
                                 className="absolute top-[70%] left-[23%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-40 group cursor-pointer"
                                 onClick={() => setSelectedMember(teamMembers.bek_massie)}
                             >
-                                <div className="absolute -top-[40px] left-[40%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
+                                <div className="absolute -top-[40px] left-[58%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
-                                        Bek Massie
+                                        Rebekah Massie
                                     </h3>
                                     <p className="text-[#FDE8D5] text-[12px] md:text-[14px] tracking-[0.1em] mt-1 whitespace-nowrap">
-                                        office manager
+                                        Office Manager
                                     </p>
                                 </div>
-                                <img src={people1} alt="Team Member" className="w-full h-auto object-cover rounded-lg sm:rounded-xl transition-all duration-700 ease-in-out group-hover:translate-y-10" />
+                                <img src={people6} alt="Team Member" className="w-full h-auto object-cover rounded-lg sm:rounded-xl transition-all duration-700 ease-in-out group-hover:translate-y-10" />
                             </div>
 
                             {/* Vector Ornament - bottom right */}
@@ -1162,7 +1169,7 @@ const LandingHero = () => {
                 >
                     {/* Modal Content container */}
                     <div
-                        className="relative w-full max-w-md bg-[#1A1A1A] border border-[#2D2D2D] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden text-white flex flex-col transform transition-all duration-300 scale-100 animate-scale-up"
+                        className="relative w-full max-w-lg bg-[#1A1A1A] border border-[#2D2D2D] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden text-white flex flex-col transform transition-all duration-300 scale-100 animate-scale-up"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close button overlaying top right of the image */}
@@ -1177,16 +1184,16 @@ const LandingHero = () => {
                         </button>
 
                         {/* Top: Image */}
-                        <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#141414] flex justify-center items-center">
+                        <div className="w-full relative overflow-hidden flex justify-center items-center">
                             <img
                                 src={selectedMember.image}
                                 alt={selectedMember.name}
-                                className="h-full object-cover"
+                                className="w-full max-w-[250px] h-auto object-cover m-4"
                             />
                         </div>
 
                         {/* Bottom: Name, Role, Bio */}
-                        <div className="w-full p-4 md:p-6 flex flex-col bg-[#1E1E1E]">
+                        <div className="w-full px-4 md:px-6 flex flex-col">
                             <div className="mb-2 text-center">
                                 <h3 className="text-2xl md:text-3xl font-black tracking-wider text-[#FDE8D5] mt-1 uppercase">
                                     {selectedMember.name}
