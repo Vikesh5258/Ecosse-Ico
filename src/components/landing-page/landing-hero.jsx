@@ -72,7 +72,7 @@ const LandingHero = () => {
 
     const teamMembers = {
         rose_foster: {
-            name: "Rose Foster",
+            name: "Ross Foster",
             role: "Co-Founder / CFO",
             image: team1,
             bio: "Ross Foster is a visionary entrepreneur and Co-Founder of Foster Whisky, bringing together extensive experience in engineering, construction, and luxury development. As CEO of Snowdrop Developments, he has successfully led high-value residential projects across Scotland, earning a reputation for operational excellence and long-term strategic leadership. With a background that includes service in the Royal Navy and global engineering projects, Ross combines discipline, innovation, and business expertise to help drive the vision of the Ecosse Coin ecosystem and its whisky-backed asset model."
@@ -84,7 +84,7 @@ const LandingHero = () => {
             bio: "Dean Thomson is a seasoned whisky industry professional and Co-Founder of Foster Whisky, with over a decade of hands-on experience in Scotch whisky production, cask management, maturation, and logistics. Having worked with renowned distilleries including Whyte & Mackay, Dean developed deep expertise across every stage of whisky operations before moving into senior leadership roles within the whisky cask brokerage sector. His extensive industry knowledge and operational insight play a key role in strengthening the authenticity and real-world asset foundation of the Ecosse Coin platform. "
         },
         rose_blease: {
-            name: "Rose Blease",
+            name: "Ross Blease",
             role: "Expansion / Site Delivery Manager",
             image: team3,
             bio: "Ross Blease is an experienced construction and development professional with over 20 years of industry expertise, progressing from a qualified joiner to Managing Director of Snowdrop Developments UK Limited. With a strong background in residential property development, project management, and operational leadership, he has successfully overseen multiple live developments while maintaining high standards of quality, safety, and delivery. Ross combines hands-on technical knowledge with strategic leadership, bringing valuable operational experience and industry insight to the Ecosse Coin ecosystem and its long-term growth vision."
@@ -215,9 +215,15 @@ const LandingHero = () => {
 
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-4 mt-8 sm:mt-10">
-                            <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-95 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
-                                Buy Now
-                            </button>
+                            <a
+                                href="https://www.ecosse-coin.io/dashboard"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-95 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                                    Buy Now
+                                </button>
+                            </a>
                             <button className="border border-[#B47B59] text-[#B47B59] hover:bg-[#F6EFE9] font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base">
                                 Download Whitepaper
                             </button>
@@ -247,13 +253,13 @@ const LandingHero = () => {
                                 </div>
 
                                 {/* Etherscan Link Button */}
-                                <a
-                                    href={``}
+                                <a                                                                                             
+                                    href={`https://amoy.polygonscan.com/address/0xf40dd39b51949a388dd5de5d7757282e29a8403a`}
                                     target="_blank"
                                     rel="noreferrer"
                                     className="flex-1 flex items-center justify-center gap-2 border border-[#B47B59]/40 hover:border-[#B47B59] hover:bg-[#FAF6F3] text-[#B47B59] font-semibold px-6 py-3.5 rounded-2xl transition-all duration-300 text-[15px]"
                                 >
-                                    <span>View on Etherscan</span>
+                                    <span>View on Bscscan</span>
                                     <i className="fa-solid fa-arrow-up-right-from-square text-sm"></i>
                                 </a>
                             </div>
@@ -351,17 +357,17 @@ const LandingHero = () => {
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Top Stats Row */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
                         <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
                             <h3 className="text-xl sm:text-2xl font-medium text-[#1E1E1E] tracking-[0.2em] mb-2">918.82B</h3>
                             <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em]">Max token supply</p>
                         </div>
-                        <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
+                        {/* <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
                             <h3 className="text-xl sm:text-2xl font-medium text-[#111111] tracking-[0.2em] mb-2">1,000</h3>
                             <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em]">Casks per year</p>
-                        </div>
+                        </div> */}
                         <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
-                            <h3 className="text-xl sm:text-2xl font-medium text-[#111111] tracking-[0.2em] mb-2">10 yr</h3>
+                            <h3 className="text-xl sm:text-2xl font-medium text-[#111111] tracking-[0.2em] mb-2">7 yr</h3>
                             <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em]">Maturation cycle</p>
                         </div>
                         <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
@@ -387,10 +393,10 @@ const LandingHero = () => {
                         <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col">
                             <img src={featureIcon2} alt="Burn Icon" className="w-[60px] sm:w-[75px] h-auto mb-8 sm:mb-12" />
                             <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
-                                Asset-Linked <br className="hidden sm:block" /> Burn Mechanism
+                                Controlled Burning<br className="hidden sm:block" /> Mechanism
                             </h3>
                             <p className="text-[#6B625B] text-[15px] sm:text-base leading-[1.8] font-medium tracking-[0.2em]">
-                                Tokens are burned as mature casks are realized and ownership transfers occur, aligning digital supply with the physical whisky portfolio.                        </p>
+                                The ECOSSE token incorporates a controlled burn mechanism. This deflationary structure supports long-term token sustainability while maintaining alignment with platform growth and market activity.                       </p>
                         </div>
 
                         {/* Card 3 */}
@@ -459,9 +465,10 @@ const LandingHero = () => {
                     <div className="mb-12 max-w-[733px]">
                         <h2 className="text-[40px] sm:text-[48px] font-black tracking-[0.2em] mb-6">Tokenomics</h2>
                         <p className="text-[#1E1E1E] text-[20px] mb-4 font-medium tracking-[0.2em] font-thin">
-                            This model combines realization of gains from mature casks with systematic reinvestment into early-stage casks, enabling portfolio compounding through both asset appreciation and ecosystem expansion.                        </p>
+                            This model combines long-term ecosystem growth with controlled token supply management through scheduled burns, liquidity-based reductions, and treasury-backed deflationary mechanisms designed to support sustainable value appreciation.
+                        </p>
                         <p className="text-[#1E1E1E] text-[20px] font-medium tracking-[0.2em] font-thin">
-                            All whisky assets are secured within licensed Scottish bonded warehouses.
+                            All whisky assets backing the ecosystem are securely stored within licensed Scottish bonded warehouses, ensuring transparency, authenticity, and institutional-grade asset protection.
                         </p>
                     </div>
 
@@ -489,7 +496,7 @@ const LandingHero = () => {
                                 />
                             </div>
                             <div>
-                                <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Circulating</span>
+                                <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Public Sale</span>
                                 <h4 className="text-lg font-bold">390.00M</h4>
                             </div>
                         </div>
@@ -503,22 +510,22 @@ const LandingHero = () => {
                             </div>
                             <div>
                                 <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Burns</span>
-                                <h4 className="text-lg font-bold">10.30M</h4>
+                                <h4 className="text-lg font-bold">9,188,200,000</h4>
                             </div>
                         </div>
                     </div>
 
                     {/* 4 Cards Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
+                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
                         <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">
                                 918.82B</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">Maximum Supply</p>
                         </div>
-                        <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
+                        {/* <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">1000</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">Initial Annual Casks</p>
-                        </div>
+                        </div> */}
                         <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">131.26M</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">Tokens per cask</p>
@@ -533,7 +540,7 @@ const LandingHero = () => {
                     <div className="bg-[#FDE8D5] rounded-[24px] p-8 mb-4 shadow-sm">
                         <div className="mb-10">
                             <span className="text-[13px] text-[#1E1E1E] tracking-[0.2em]">Total Supply</span>
-                            <h3 className="text-3xl md:text-4xl font-black tracking-[0.05em] mt-1">1,000,000,000</h3>
+                            <h3 className="text-3xl md:text-4xl font-black tracking-[0.05em] mt-1">918,820,000,000</h3>
                             <span className="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-[0.1em] block mt-2">Ecosse Coin</span>
                         </div>
 
@@ -587,7 +594,7 @@ const LandingHero = () => {
                             </div>
                         </div>
                     </div>                    {/* Issuance ratios */}
-                    <div className="bg-[#FDE8D5] rounded-[24px] p-6 sm:p-8 mb-4 shadow-sm">
+                    {/* <div className="bg-[#FDE8D5] rounded-[24px] p-6 sm:p-8 mb-4 shadow-sm">
                         <div className="mb-10 flex flex-col items-start gap-4">
                             <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
                                 <img
@@ -644,10 +651,10 @@ const LandingHero = () => {
                                 <div className="hidden sm:block w-32 md:w-40 text-right text-[#595959] font-medium tracking-[0.2em] text-[15px] sm:text-[20px]">918.82B tokens</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Mint & burn mechanism */}
-                    <div className="bg-[#FDE8D5] rounded-[24px] p-6 sm:p-8 shadow-sm">
+                    {/* <div className="bg-[#FDE8D5] rounded-[24px] p-6 sm:p-8 shadow-sm">
                         <div className="mb-10 flex flex-col items-start gap-6">
                             <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
                                 <img
@@ -689,7 +696,7 @@ const LandingHero = () => {
                                 <div className="text-[16px] text-[#E4DDCD] font-medium tracking-[0.2em]">-131.26M</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </section>
@@ -912,7 +919,7 @@ const LandingHero = () => {
                                 </div>
                             </div>
                             <p className="text-[#E4DDCD] text-[13px] sm:text-[14px] md:text-[20px] tracking-[0.1em] font-medium font-thin">
-                                Ten-year casks have been realized, tokens have been burned, and new casks are continuously minted. We are perpetually adding new cycles. As the net asset value (NAV) grows, the token value increases without any inflation in supply.
+                                Seven-year casks have been realized, tokens have been burned, and new casks are continuously minted. We are perpetually adding new cycles. As the net asset value (NAV) grows, the token value increases without any inflation in supply.
                             </p>
                         </div>
 
@@ -928,7 +935,7 @@ const LandingHero = () => {
                                 {/* Top Outside Content */}
                                 <div className="absolute -top-[40px] left-[45%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
-                                        Rose Foster
+                                        Ross Foster
                                     </h3>
                                     <p className="text-[#FDE8D5] text-[12px] md:text-[14px] tracking-[0.1em] mt-1 whitespace-nowrap">
                                         Co-Founder / CFO
@@ -972,7 +979,7 @@ const LandingHero = () => {
                             >
                                 <div className="absolute -top-[40px] left-[45%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
-                                        Rose Blease
+                                        Ross Blease
                                     </h3>
                                     <p className="text-[#FDE8D5] text-[12px] md:text-[14px] tracking-[0.1em] mt-1 whitespace-nowrap">
                                         expansion / site <br />delivery manager
