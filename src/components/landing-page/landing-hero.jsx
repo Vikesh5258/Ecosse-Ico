@@ -138,9 +138,8 @@ const LandingHero = () => {
                 style={{ backgroundImage: `url(${topBg})` }}
             >
                 {/* Stat Cards Container */}
-                <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
+                {/* <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
 
-                    {/* Card 1 - Holders */}
                     <div className="bg-white/80 backdrop-blur-sm p-5 rounded-2xl shadow-sm border border-[#e6e2da] flex items-center justify-between transition-transform duration-300 hover:translate-y-[-4px]">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-[#F6EFE9] flex items-center justify-center flex-shrink-0">
@@ -156,7 +155,6 @@ const LandingHero = () => {
                         </div>
                     </div>
 
-                    {/* Card 2 - Circulating Supply */}
                     <div className="bg-white/80 backdrop-blur-sm p-5 rounded-2xl shadow-sm border border-[#e6e2da] flex items-center justify-between transition-transform duration-300 hover:translate-y-[-4px]">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-[#F6EFE9] flex items-center justify-center flex-shrink-0">
@@ -172,7 +170,6 @@ const LandingHero = () => {
                         </div>
                     </div>
 
-                    {/* Card 3 - Total Burns */}
                     <div className="bg-white/80 backdrop-blur-sm p-5 rounded-2xl shadow-sm border border-[#e6e2da] flex items-center justify-between transition-transform duration-300 hover:translate-y-[-4px]">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-[#F6EFE9] flex items-center justify-center flex-shrink-0">
@@ -188,7 +185,7 @@ const LandingHero = () => {
                         </div>
                     </div>
 
-                </div>
+                </div> */}
 
                 {/* Main Content & Coin Grid */}
                 <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -219,7 +216,7 @@ const LandingHero = () => {
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-4 mt-8 sm:mt-10">
                             <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-95 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
-                                Explore Now
+                                Buy Now
                             </button>
                             <button className="border border-[#B47B59] text-[#B47B59] hover:bg-[#F6EFE9] font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base">
                                 Download Whitepaper
