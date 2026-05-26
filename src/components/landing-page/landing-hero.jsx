@@ -309,7 +309,7 @@ const LandingHero = () => {
                                 {/* Top Label */}
 
                                 {/* Barrel - overlaps into right column and onto "MATTERS" heading */}
-                                <div className="relative w-[210px] sm:w-[250px] md:w-[400px] z-10 sm:-mt-18 md:-mt-18">
+                                <div className="relative w-[210px] sm:w-[250px] md:w-[400px] z-10">
                                     <img src={barrelImg} alt="Whisky Barrel" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] object-contain" />
                                 </div>
                             </div>
@@ -466,8 +466,8 @@ const LandingHero = () => {
                     </div>
 
                     {/* Small 3 Cards Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        {/* <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm">
                             <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px]">
                                 <img
                                     src={tokIcon}
@@ -479,7 +479,7 @@ const LandingHero = () => {
                                 <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Holders</span>
                                 <h4 className="text-lg font-bold">18,742</h4>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm">
                             <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px]">
                                 <img
