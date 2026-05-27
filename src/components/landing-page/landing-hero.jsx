@@ -216,7 +216,7 @@ const LandingHero = () => {
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-4 mt-8 sm:mt-10">
                             <a
-                                href="https://www.ecosse-coin.io/dashboard"
+                                href="https://www.ecosse-coin.io/ico"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -259,7 +259,7 @@ const LandingHero = () => {
                                     rel="noreferrer"
                                     className="flex-1 flex items-center justify-center gap-2 border border-[#B47B59]/40 hover:border-[#B47B59] hover:bg-[#FAF6F3] text-[#B47B59] font-semibold px-6 py-3.5 rounded-2xl transition-all duration-300 text-[15px]"
                                 >
-                                    <span>View on Bscscan</span>
+                                    <span>View on Polygonscan</span>
                                     <i className="fa-solid fa-arrow-up-right-from-square text-sm"></i>
                                 </a>
                             </div>
@@ -516,7 +516,7 @@ const LandingHero = () => {
                     </div>
 
                     {/* 4 Cards Row */}
-                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">
                                 918.82B</h3>
@@ -525,11 +525,11 @@ const LandingHero = () => {
                         {/* <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">1000</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">Initial Annual Casks</p>
-                        </div> */}
+                        </div> 
                         <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">131.26M</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">Tokens per cask</p>
-                        </div>
+                        </div>*/}
                         <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">Bonded Custody</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">HMRC</p>
@@ -1072,15 +1072,13 @@ const LandingHero = () => {
                                 />
 
                                 {/* Dark overlay that appears on hover */}
-                                <div className="absolute inset-0 backdrop-blur-0 group-hover:backdrop-blur-md bg-black/0 transition-all duration-500 flex items-center justify-center">
-
-                                    {/* Centered Text */}
+                                {/* <div className="absolute inset-0 backdrop-blur-0 group-hover:backdrop-blur-md bg-black/0 transition-all duration-500 flex items-center justify-center">
                                     <span className="text-center text-[#FFFFFF] text-[18px] sm:text-[22px] md:text-[40px] font-bold tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-lg">
                                         Foster <br />
                                         Whisky
                                     </span>
 
-                                </div>
+                                </div> */}
                             </div>
                         ))}
                     </div>
