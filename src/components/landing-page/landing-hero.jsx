@@ -7,7 +7,8 @@ import sparkline2 from '../../assets/Container-2.svg';
 import sparkline3 from '../../assets/Container-3.svg';
 import mainCoin from '../../assets/her-main-img.png';
 import topBg from '../../assets/top-bg-img.jpg';
-import coinVideo from '../../assets/video/coin-video.mp4';
+import coinVideo from '../../assets/video/coin-video-1.mp4';
+import coinVideo2 from '../../assets/video/coin-video-2.mp4';
 import barrelImg from '../../assets/second-img.png';
 import featureIcon1 from '../../assets/card-img.png';
 import featureIcon2 from '../../assets/card-img-2.png';
@@ -61,6 +62,10 @@ import team3 from '../../assets/popup-img-3.png';
 import team4 from '../../assets/popup-img-4.png';
 import team5 from '../../assets/popup-img-5.png';
 import team6 from '../../assets/popup-img-6.png';
+import partnerLogo1 from '../../assets/0ur-partner-1.svg';
+import partnerLogo2 from '../../assets/0ur-partner-2.svg';
+import partnerFrame1 from '../../assets/our-partner-frame-1.png';
+import partnerFrame2 from '../../assets/our-partner-frame-2.png';
 
 
 const LandingHero = () => {
@@ -253,7 +258,7 @@ const LandingHero = () => {
                                 </div>
 
                                 {/* Etherscan Link Button */}
-                                <a                                                                                             
+                                <a
                                     href={`https://amoy.polygonscan.com/address/0xf40dd39b51949a388dd5de5d7757282e29a8403a`}
                                     target="_blank"
                                     rel="noreferrer"
@@ -418,9 +423,7 @@ const LandingHero = () => {
                             <p className="text-[#6B625B] text-[15px] sm:text-base leading-[1.8] font-medium tracking-[0.2em]">
                                 Cask records, maturation metrics, fill levels, and inventory data are integrated into a transparent and verifiable ecosystem.                        </p>
                         </div>
-
                     </div>
-
                 </div>
             </section>
 
@@ -432,16 +435,16 @@ const LandingHero = () => {
                 <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center relative z-10">
 
                     {/* Left Side Coin Video */}
-                    <div className="flex justify-center md:justify-end">
-                        <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full aspect-square transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
+                    <div className="flex justify-center">
+                        <div className="relative w-[280px] sm:w-[360px] lg:w-[420px] xl:w-[480px] aspect-[4/5] bg-black rounded-[32px] overflow-hidden shadow-2xl transition-transform hover:scale-[1.02] duration-500 flex items-center justify-center">
                             <video
-                                src={coinVideo}
+                                src={coinVideo2}
                                 poster={mainCoin}
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                className="w-full h-full object-cover rounded-full"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     </div>
@@ -1047,6 +1050,101 @@ const LandingHero = () => {
                         </div>
 
                     </div>
+                </div>
+            </section>
+
+            <section className='our-partners' id="our-partners">
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Section Header */}
+                    <div className="text-center mb-12 md:mb-16">
+                        <h2 className="text-[36px] sm:text-[44px] md:text-[56px] font-black tracking-[0.2em] text-[#1E1E1E] mb-4">
+                            Our Partners
+                        </h2>
+                        <p className="text-[#595959] text-[14px] sm:text-[16px] md:text-[18px] tracking-[0.1em] font-medium max-w-[640px] mx-auto leading-relaxed">
+                            We collaborate with trusted partners who share our commitment to quality,
+                            innovation, and customer success. Together, we create stronger solutions
+                            and deliver greater value.
+                        </p>
+                    </div>
+
+                    {/* Partner Feature Cards */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-18">
+
+                        {/* Card 1 — VAPOUR */}
+                        <div className="bg-[#FDE8D5] rounded-2xl p-8 sm:p-10 flex flex-col">
+                            <img
+                                src={partnerLogo1}
+                                alt="Vapour"
+                                className="h-10 w-auto object-contain object-left mb-8"
+                            />
+                            <h3 className="text-[24px] sm:text-[28px] md:text-[32px] font-black tracking-[0.1em] text-[#1E1E1E] mb-4 leading-tight">
+                                Vapour scot
+                                <br />Partner content
+                            </h3>
+                            <p className="text-[#595959] text-[14px] sm:text-[16px] tracking-[0.1em] font-medium leading-[1.8] mb-8 flex-1">
+                                Powered by real-time telemetry from <strong><a href="https://vapour.scot/">vapour.Scot</a></strong>, ECOSSE delivers independently monitored whisky cask analytics including ABV, fill levels, and environmental data.<br />
+                                All telemetry is securely verified, audited, and anchored on-chain to provide transparent and trusted asset provenance for investors.
+                            </p>
+                            <div>
+                                <a href="https://vapour.scot/" target="_blank" rel="noreferrer">
+                                    <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                                        See More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Card 2 — FOSTER WHISKY */}
+                        <div className="bg-[#FDE8D5] rounded-2xl p-8 sm:p-10 flex flex-col">
+                            <img
+                                src={partnerLogo2}
+                                alt="Foster Whisky"
+                                className="h-10 w-auto object-contain object-left mb-8"
+                            />
+                            <h3 className="text-[24px] sm:text-[28px] md:text-[32px] font-black tracking-[0.1em] text-[#1E1E1E] mb-4 leading-tight">
+                                Foster Whisky <br /> Partner content
+                            </h3>
+                            <p className="text-[#595959] text-[14px] sm:text-[16px] tracking-[0.1em] font-medium leading-[1.8] mb-8 flex-1">
+                                Whisky casks secured under HMRC-regulated bonded custody by Foster Whisky, ensuring compliant storage, provenance protection, and institutional-grade asset security.<br />
+                                ECOSSE partners with trusted bonded warehouse operators to safeguard underlying whisky assets while maintaining transparent ownership and auditability for investors.
+                            </p>
+                            <div>
+                                <a href="https://www.fosterwhisky.co.uk/" target="_blank" rel="noreferrer">
+                                    <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                                        See More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Certificate Frames Row */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="">
+                            <img
+                                src={partnerFrame1}
+                                alt="HMRC Excise Warehousing Registration Certificate – Page 1"
+                                className="w-full h-auto object-contain"
+                            />
+                        </div>
+                        <div className="">
+                            <img
+                                src={partnerFrame2}
+                                alt="HMRC Excise Warehousing Registration Certificate – Page 2"
+                                className="w-full h-auto object-contain"
+                            />
+                        </div>
+                    </div>
+
                 </div>
             </section>
 

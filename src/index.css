@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer components {
+    .our-partners {
+        @apply w-full py-16 overflow-hidden;
+    }
+
+    .our-partners__btn {
+        @apply inline-flex items-center gap-2 bg-[#1E1E1E] text-[#F5F0EB] text-[14px] sm:text-[15px] tracking-[0.15em] font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:bg-[#3a3a3a] hover:scale-[1.03] cursor-pointer no-underline;
+    }
+
+    .our-partners__frame-wrap {
+        @apply relative overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] hover:shadow-2xl;
+    }
+}
