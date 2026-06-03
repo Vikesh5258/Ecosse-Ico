@@ -1,26 +1,35 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import headerImg from '../../assets/header-img.png';
 
 const LandingHeader = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
     const scrollToSection = (e, sectionId) => {
         e.preventDefault();
+        setIsMobileMenuOpen(false);
+ 
         const element = document.getElementById(sectionId);
         if (element) {
+            // Already on home page — smooth scroll
             const headerOffset = 110;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-
-            // Update the URL hash without jumping
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             window.history.pushState(null, null, `${sectionId}`);
+        } else {
+            // On a different page (e.g. PDF) — navigate home then scroll
+            navigate('/');
+            setTimeout(() => {
+                const el = document.getElementById(sectionId);
+                if (el) {
+                    const headerOffset = 110;
+                    const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            }, 300);
         }
-        setIsMobileMenuOpen(false);
     };
 
     return (
@@ -33,22 +42,18 @@ const LandingHeader = () => {
                 <div className="px-4 sm:px-6 lg:px-8 h-[110px] flex items-center justify-between">
 
                     {/* Logo & Title */}
-                    <div onClick={(e) => scrollToSection(e, 'home')} className="flex items-center gap-3 cursor-pointer">
-                        {/* Placeholder for the coin logo */}
-                        <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
+                    <a href="/" className="flex items-center gap-3 cursor-pointer no-underline">
+                        <div className="w-20 h-20 rounded-full flex items-center justify-center overflow-hidden">
                             <img src={headerImg} alt="Ecosse Coin Logo" className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
                         </div>
-                        <span className="text-[#B47B59] font-bold text-xl tracking-wider uppercase">
-                            Ecosse Coin
-                        </span>
-                    </div>
+                    </a>
 
                     {/* Desktop Navigation Links */}
                     <nav className="hidden lg:flex items-center gap-10">
                         {['About', 'Tokenomics', 'Roadmap', 'Teams', 'FAQ'].map((item) => (
                             <a
                                 key={item}
-                                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                                href={`${item.toLowerCase().replace(' ', '-')}`}
                                 onClick={(e) => scrollToSection(e, item.toLowerCase().replace(' ', '-'))}
                                 className="text-[#374151] hover:text-[#a66a45] text-[15px] font-medium transition-colors cursor-pointer"
                             >
@@ -95,7 +100,7 @@ const LandingHeader = () => {
                             {['About', 'Tokenomics', 'Roadmap', 'Teams', 'FAQ'].map((item) => (
                                 <a
                                     key={item}
-                                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                                    href={`${item.toLowerCase().replace(' ', '-')}`}
                                     onClick={(e) => scrollToSection(e, item.toLowerCase().replace(' ', '-'))}
                                     className="text-[#374151] hover:text-[#a66a45] text-lg font-medium transition-colors cursor-pointer"
                                 >

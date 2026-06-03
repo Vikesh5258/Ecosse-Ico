@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import cardIcon1 from '../../assets/card-icon-1.svg';
 import cardIcon2 from '../../assets/card-icon-2.svg';
 import cardIcon3 from '../../assets/card-icon-3.svg';
-import sparkline1 from '../../assets/Container-1.svg';
-import sparkline2 from '../../assets/Container-2.svg';
-import sparkline3 from '../../assets/Container-3.svg';
 import mainCoin from '../../assets/her-main-img.png';
 import topBg from '../../assets/top-bg-img.jpg';
 import coinVideo from '../../assets/video/coin-video-1.mp4';
@@ -51,6 +53,7 @@ import people3 from '../../assets/people-3.png';
 import people4 from '../../assets/people-4.png';
 import people5 from '../../assets/people-5.png';
 import people6 from '../../assets/people-6.png';
+import people7 from '../../assets/people-7.png';
 import vectorDecor from '../../assets/Vector.svg';
 import vectorKnot from '../../assets/Vector-2.svg';
 import vectorStar from '../../assets/Vector-3.svg';
@@ -62,6 +65,7 @@ import team3 from '../../assets/popup-img-3.png';
 import team4 from '../../assets/popup-img-4.png';
 import team5 from '../../assets/popup-img-5.png';
 import team6 from '../../assets/popup-img-6.png';
+import team7 from '../../assets/popup-img-7.png';
 import partnerLogo1 from '../../assets/0ur-partner-1.svg';
 import partnerLogo2 from '../../assets/0ur-partner-2.svg';
 import partnerFrame1 from '../../assets/our-partner-frame-1.png';
@@ -74,6 +78,17 @@ const LandingHero = () => {
     const [copied, setCopied] = useState(false);
     const [openFaq, setOpenFaq] = useState(null);
     const [selectedMember, setSelectedMember] = useState(null);
+    const [isSwiperMode, setIsSwiperMode] = useState(false);
+
+    const handleSeeMoreClick = () => {
+        setSelectedMember(teamMembers.rose_foster);
+        setIsSwiperMode(true);
+    };
+
+    const handleMemberClick = (member) => {
+        setSelectedMember(member);
+        setIsSwiperMode(false);
+    };
 
     const teamMembers = {
         rose_foster: {
@@ -111,6 +126,12 @@ const LandingHero = () => {
             role: "Office Manager",
             image: team6,
             bio: "Rebekah Massie is an experienced operations and administration professional with a strong background in office management, financial coordination, and executive support. As Office Manager at Snowdrop Developments (UK) Ltd, she oversees daily business operations, budgeting, procurement, and organisational processes, ensuring efficiency and compliance across the company. With expertise in team coordination, strategic administration, and operational management, Rebekah brings valuable organisational strength and professional support to the Ecosse Coin ecosystem, contributing to its structured growth and operational excellence."
+        },
+        pranav_chawande: {
+            name: "Pranav Chawande",
+            role: "PR Guru",
+            image: team7,
+            bio: "Pranav Chawande is an accomplished international real estate professional with extensive experience across the UK, India, and Dubai property markets. As the founder of Chawande Real Estate, he has built a reputation for delivering exceptional client-focused services, strategic property investments, and long-term wealth creation solutions. With a leadership philosophy centered on trust, integrity, and relationship-driven growth, Pranav has successfully guided investors, homeowners, and high-net-worth individuals through complex real estate opportunities across multiple jurisdictions. His expertise in luxury real estate, market analysis, and business development has established him as a respected figure within the global property sector. Pranav is also actively involved in the Ecosse Coin project, bringing valuable experience in real-world asset management, international investment networks, and strategic business growth, further strengthening the project's vision of combining premium whisky assets with innovative blockchain technology."
         }
     };
 
@@ -200,7 +221,7 @@ const LandingHero = () => {
 
                         {/* Hero Headings */}
                         <div className="flex flex-col">
-                            <h2 className="text-[#B47B59] font-semibold text-[36px] sm:text-[48px] md:text-[72px] leading-none tracking-wide mb-4 sm:mb-5">
+                            <h2 className="text-[#B47B59] font-semibold text-[36px] sm:text-[48px] md:text-[72px] leading-none tracking-wide mb-4 sm:mb-5 uppercase">
                                 Ecosse Coin
                             </h2>
                             <h1 className="text-[#1E1E1E] text-[28px] sm:text-[38px] md:text-[46px] tracking-wide font-semibold">
@@ -225,7 +246,7 @@ const LandingHero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-95 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                                <button className="bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-95 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base cursor-pointer">
                                     Buy Now
                                 </button>
                             </a>
@@ -362,7 +383,7 @@ const LandingHero = () => {
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Top Stats Row */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+                    <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
                         <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
                             <h3 className="text-xl sm:text-2xl font-medium text-[#1E1E1E] tracking-[0.2em] mb-2">918.82B</h3>
                             <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em]">Max token supply</p>
@@ -375,17 +396,40 @@ const LandingHero = () => {
                             <h3 className="text-xl sm:text-2xl font-medium text-[#111111] tracking-[0.2em] mb-2">7 yr</h3>
                             <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em]">Maturation cycle</p>
                         </div>
-                        <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm">
-                            <h3 className="text-xl sm:text-2xl font-medium text-[#111111] tracking-[0.2em] mb-2">HMRC</h3>
-                            <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em]">Regulated custody</p>
-                        </div>
+                        <a
+                            href="https://www.fosterwhisky.co.uk/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <div className="bg-[#FDE8D5] rounded-[12px] p-6 sm:p-8 flex flex-row items-center justify-between text-left gap-6 shadow-sm cursor-pointer hover:shadow-md transition-all duration-300">
+                                <div className="flex-shrink-0">
+                                    <img
+                                        src={partnerLogo2}
+                                        alt="HMRC"
+                                        className="w-20 h-20 sm:w-25 sm:h-20 object-contain transition-transform duration-300 hover:scale-110"
+                                    />
+                                </div>
+
+                                <div className="text-right">
+                                    <h3 className="text-xl sm:text-2xl font-medium text-[#111111] tracking-[0.2em] mb-2">
+                                        HMRC
+                                    </h3>
+
+                                    <p className="text-sm sm:text-[15px] font-thin text-[#7A7067] tracking-[0.2em] text-left">
+                                        Regulated <br />
+                                        custody
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
                     {/* Features 2x2 Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                         {/* Card 1 */}
-                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col">
+                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col transition-transform duration-300 hover:scale-[1.03]">
                             <img src={featureIcon1} alt="Maturation Icon" className="w-[60px] sm:w-[75px] h-auto mb-8 sm:mb-12" />
                             <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
                                 Maturation <br className="hidden sm:block" /> Appreciation
@@ -395,7 +439,7 @@ const LandingHero = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col">
+                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col transition-transform duration-300 hover:scale-[1.03]">
                             <img src={featureIcon2} alt="Burn Icon" className="w-[60px] sm:w-[75px] h-auto mb-8 sm:mb-12" />
                             <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
                                 Controlled Burning<br className="hidden sm:block" /> Mechanism
@@ -405,23 +449,28 @@ const LandingHero = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col">
-                            <img src={featureIcon3} alt="HMRC Icon" className="w-[60px] sm:w-[75px] h-auto mb-8 sm:mb-12" />
-                            <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
-                                HMRC Bonded <br className="hidden sm:block" /> Warehousing
-                            </h3>
-                            <p className="text-[#6B625B] text-[15px] sm:text-base leading-[1.8] font-medium tracking-[0.2em]">
-                                All casks are stored within licensed Scottish bonded warehouses under regulated custody and audited inventory controls.                        </p>
+                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col transition-transform duration-300 hover:scale-[1.03]">
+                            <a href="https://www.fosterwhisky.co.uk/" target="_blank" rel="noreferrer">
+                                <img src={partnerLogo2} alt="HMRC Icon" className="w-[150px] sm:w-[100px] h-auto mb-8 sm:mb-12" />
+
+                                <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
+                                    HMRC Bonded<br className="hidden sm:block" /> Warehousing
+                                </h3>
+                                <p className="text-[#6B625B] text-[15px] sm:text-base leading-[1.8] font-medium tracking-[0.2em]">
+                                    All casks are stored within licensed Scottish bonded warehouses under regulated custody and audited inventory controls.</p>
+                            </a>
                         </div>
 
                         {/* Card 4 */}
-                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col">
-                            <img src={featureIcon4} alt="Visibility Icon" className="w-[60px] sm:w-[75px] h-auto mb-8 sm:mb-12" />
-                            <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
-                                On-Chain <br className="hidden sm:block" /> Asset Visibility
-                            </h3>
-                            <p className="text-[#6B625B] text-[15px] sm:text-base leading-[1.8] font-medium tracking-[0.2em]">
-                                Cask records, maturation metrics, fill levels, and inventory data are integrated into a transparent and verifiable ecosystem.                        </p>
+                        <div className="bg-[#FDE8D5] rounded-[12px] p-8 sm:p-12 shadow-sm flex flex-col transition-transform duration-300 hover:scale-[1.03]">
+                            <a href="https://vapour.scot/" target="_blank" rel="noreferrer">
+                                <img src={partnerLogo1} alt="Visibility Icon" className="w-[150px] sm:w-[200px] h-auto mb-8 sm:mb-10" />
+                                <h3 className="text-2xl sm:text-[28px] md:text-[32px] font-semibold text-[#111111] leading-[1.25] tracking-[0.2em] mb-6">
+                                    On-Chain <br className="hidden sm:block" /> Asset Visibility
+                                </h3>
+                                <p className="text-[#6B625B] text-[15px] sm:text-base leading-[1.8] font-medium tracking-[0.2em]">
+                                    Cask records, maturation metrics, fill levels, and inventory data are integrated into a transparent and verifiable ecosystem.</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -500,7 +549,7 @@ const LandingHero = () => {
                             </div>
                             <div>
                                 <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Public Sale</span>
-                                <h4 className="text-lg font-bold">390.00M</h4>
+                                <h4 className="text-lg font-bold">358.3398B Tokens</h4>
                             </div>
                         </div>
                         <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm">
@@ -513,7 +562,7 @@ const LandingHero = () => {
                             </div>
                             <div>
                                 <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Burns</span>
-                                <h4 className="text-lg font-bold">9,188,200,000</h4>
+                                <h4 className="text-lg font-bold">9.1882B</h4>
                             </div>
                         </div>
                     </div>
@@ -533,10 +582,36 @@ const LandingHero = () => {
                             <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">131.26M</h3>
                             <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">Tokens per cask</p>
                         </div>*/}
-                        <div className="bg-[#FDE8D5] rounded-[16px] px-2 py-6 text-center shadow-sm flex flex-col items-center justify-center">
-                            <h3 className="text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em]">Bonded Custody</h3>
-                            <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em]">HMRC</p>
-                        </div>
+                        <a
+                            href="https://www.fosterwhisky.co.uk/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <div className="bg-[#FDE8D5] rounded-[16px] px-4 sm:px-6 py-6 shadow-sm flex items-center gap-4 sm:gap-6 justify-between cursor-pointer hover:shadow-md transition-all duration-300">
+
+                                {/* Left Side Image */}
+                                <div className="flex-shrink-0">
+                                    <img
+                                        src={partnerLogo2}
+                                        alt="HMRC"
+                                        className="w-16 h-auto sm:w-25 sm:h-auto object-contain"
+                                    />
+                                </div>
+
+                                {/* Right Side Content */}
+                                <div className="flex flex-col text-left">
+                                    <h3 className="text-center text-[22px] sm:text-[26px] xl:text-[30px] font-semibold mb-1 tracking-[0.1em] sm:tracking-[0.15em] xl:tracking-[0.2em] text-[#111111]">
+                                        Bonded Custody
+                                    </h3>
+
+                                    <p className="text-[14px] sm:text-[16px] xl:text-[20px] text-[#595959] font-medium tracking-[0.1em] text-center">
+                                        HMRC
+                                    </p>
+                                </div>
+
+                            </div>
+                        </a>
                     </div>
 
                     {/* Huge Chart Card */}
@@ -821,24 +896,58 @@ const LandingHero = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 md:gap-3">
 
                         {/* Card 1 - HMRC-Regulated Bonded Custody */}
-                        <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10">
-                            <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
-                                <img
-                                    src={trustIcon1}
-                                    alt="Calculator"
-                                    className="w-10 h-10 object-contain"
-                                />
-                            </div>
-                            <h3 className="text-[22px] sm:text-[26px] md:text-[32px] font-bold tracking-[0.1em] text-[#1E1E1E] my-4 md:my-8">
-                                HMRC-Regulated Bonded Custody
-                            </h3>
-                            <p className="text-[#595959] text-[14px] sm:text-[15px] md:text-[20px] leading-[1.7] tracking-[0.2em] font-medium ">
-                                All whisky casks are stored within licensed Scottish bonded warehouses operating under HMRC regulatory oversight.
-                            </p>
-                        </div>
+                        <a
+                            href="https://www.fosterwhisky.co.uk/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10 transition-transform duration-300 hover:scale-[1.03] cursor-pointer">
+                                <div className="p-1 w-30 h-auto flex items-center justify-center rounded-[14px]">
+                                    <img
+                                        src={partnerLogo2}
+                                        alt="HMRC"
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
 
-                        {/* Card 2 - Insolvency-Remote Structure */}
-                        <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10">
+                                <h3 className="text-[22px] sm:text-[26px] md:text-[32px] font-bold tracking-[0.1em] text-[#1E1E1E] my-4 md:my-8">
+                                    HMRC-Regulated Bonded Custody
+                                </h3>
+
+                                <p className="text-[#595959] text-[14px] sm:text-[15px] md:text-[20px] leading-[1.7] tracking-[0.2em] font-medium">
+                                    All whisky casks are stored within licensed Scottish bonded warehouses
+                                    operating under HMRC regulatory oversight.
+                                </p>
+                            </div>
+                        </a>
+
+                        {/* Card 2 - Real-Time Whisky Analytics */}
+                        <a
+                            href="https://vapour.scot/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10 transition-transform duration-300 hover:scale-[1.03]">
+                                <div className="p-1 w-50 h-auto flex items-center justify-center rounded-[14px]">
+                                    <img
+                                        src={partnerLogo1}
+                                        alt="Calculator"
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
+                                <h3 className="text-[22px] sm:text-[26px] md:text-[32px] font-bold tracking-[0.1em] text-[#1E1E1E] my-4 md:my-8">
+                                    Real-Time Whisky <br /> Analytics
+                                </h3>
+                                <p className="text-[#595959] text-[14px] sm:text-[15px] md:text-[20px] leading-[1.7] tracking-[0.2em] font-medium">
+                                    Integrated monitoring systems track fill levels, ABV, evaporation loss, and cask maturation metrics.
+                                </p>
+                            </div>
+                        </a>
+
+                        {/* Card 3 - Insolvency-Remote Structure */}
+                        <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10 transition-transform duration-300 hover:scale-[1.03]">
                             <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
                                 <img
                                     src={trustIcon2}
@@ -847,32 +956,17 @@ const LandingHero = () => {
                                 />
                             </div>
                             <h3 className="text-[22px] sm:text-[26px] md:text-[32px] font-bold tracking-[0.1em] text-[#1E1E1E] my-4 md:my-8">
-                                Insolvency-Remote Structure
+                                Insolvency-Remote <br /> Structure
                             </h3>
                             <p className="text-[#595959] text-[14px] sm:text-[15px] md:text-[20px] leading-[1.7] tracking-[0.2em] font-medium">
                                 The underlying whisky assets remain segregated from operational accounts within protected bonded custody frameworks.
                             </p>
                         </div>
 
-                        {/* Card 3 - Real-Time Whisky Analytics */}
-                        <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10">
-                            <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
-                                <img
-                                    src={trustIcon3}
-                                    alt="Calculator"
-                                    className="w-10 h-10 object-contain"
-                                />
-                            </div>
-                            <h3 className="text-[22px] sm:text-[26px] md:text-[32px] font-bold tracking-[0.1em] text-[#1E1E1E] my-4 md:my-8">
-                                Real-Time Whisky <br /> Analytics
-                            </h3>
-                            <p className="text-[#595959] text-[14px] sm:text-[15px] md:text-[20px] leading-[1.7] tracking-[0.2em] font-medium">
-                                Integrated monitoring systems track fill levels, ABV, evaporation loss, and cask maturation metrics.
-                            </p>
-                        </div>
+
 
                         {/* Card 4 - Incentive Alignment */}
-                        <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10">
+                        <div className="bg-[#FDE8D5] rounded-2xl p-6 sm:p-8 md:p-10 transition-transform duration-300 hover:scale-[1.03]">
                             <div className="p-1 bg-[#1E1E1E] w-14 h-14 flex items-center justify-center rounded-[14px]">
                                 <img
                                     src={trustIcon4}
@@ -924,6 +1018,18 @@ const LandingHero = () => {
                             <p className="text-[#E4DDCD] text-[13px] sm:text-[14px] md:text-[20px] tracking-[0.1em] font-medium font-thin">
                                 Seven-year casks have been realized, tokens have been burned, and new casks are continuously minted. We are perpetually adding new cycles. As the net asset value (NAV) grows, the token value increases without any inflation in supply.
                             </p>
+
+                            <button 
+                                onClick={handleSeeMoreClick}
+                                className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] px-4 md:px-8 hover:opacity-90 hover:gap-5 text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300 text-base mt-10 cursor-pointer"
+                            >
+                                View More
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </button>
                         </div>
 
                         {/* Right Side - Staggered Photo Grid matching Figma exactly */}
@@ -933,7 +1039,7 @@ const LandingHero = () => {
                             {/* Person 1 - spiky hair guy, top */}
                             <div
                                 className="absolute top-[-4%] left-[20%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-10 group cursor-pointer"
-                                onClick={() => setSelectedMember(teamMembers.rose_foster)}
+                                onClick={() => handleMemberClick(teamMembers.rose_foster)}
                             >
                                 {/* Top Outside Content */}
                                 <div className="absolute -top-[40px] left-[45%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
@@ -953,12 +1059,12 @@ const LandingHero = () => {
                             </div>
 
                             {/* Vector Knot - between person 1 and 2 */}
-                            <img src={vectorKnot} alt="" className="absolute top-[8%] left-[50%] opacity-90 " />
+                            {/* <img src={vectorKnot} alt="" className="absolute top-[8%] left-[50%] opacity-90 " /> */}
 
                             {/* Person 2 - long hair, red tie, top-right */}
                             <div
-                                className="absolute top-[7%] left-[68%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-10 group cursor-pointer"
-                                onClick={() => setSelectedMember(teamMembers.dean_thomson)}
+                                className="absolute top-[0%] left-[68%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-10 group cursor-pointer"
+                                onClick={() => handleMemberClick(teamMembers.dean_thomson)}
                             >
                                 <div className="absolute -top-[40px] left-[50%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
@@ -973,12 +1079,12 @@ const LandingHero = () => {
 
                             {/* ROW 2: Star + Person 3 (center) + Star2 */}
                             {/* Vector Star - left side */}
-                            <img src={vectorStar} alt="" className="absolute top-[25%] left-[12%] opacity-90 z-[100]" />
+                            {/* <img src={vectorStar} alt="" className="absolute top-[25%] left-[12%] opacity-90 z-[100]" /> */}
 
                             {/* Person 3 - bald in blue jacket, CENTER */}
                             <div
                                 className="absolute top-[25%] left-[40%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-20 group cursor-pointer"
-                                onClick={() => setSelectedMember(teamMembers.rose_blease)}
+                                onClick={() => handleMemberClick(teamMembers.rose_blease)}
                             >
                                 <div className="absolute -top-[40px] left-[45%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
@@ -992,13 +1098,13 @@ const LandingHero = () => {
                             </div>
 
                             {/* Vector Star 2 - 8-point star, right of center */}
-                            <img src={vectorStar2} alt="" className="absolute top-[37%] left-[70%] opacity-90 z-[100]" />
+                            {/* <img src={vectorStar2} alt="" className="absolute top-[37%] left-[70%] opacity-90 z-[100]" /> */}
 
                             {/* ROW 3: Person 5 (left) + Person 4 (right) */}
                             {/* Person 5 - bald mustache guy, left */}
                             <div
-                                className="absolute top-[40%] left-[5%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-30 group cursor-pointer"
-                                onClick={() => setSelectedMember(teamMembers.mark_stenhouse)}
+                                className="absolute top-[25%] left-[5%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-30 group cursor-pointer"
+                                onClick={() => handleMemberClick(teamMembers.mark_stenhouse)}
                             >
                                 <div className="absolute -top-[40px] left-[55%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
@@ -1014,7 +1120,7 @@ const LandingHero = () => {
                             {/* Person 4 - slim gray suit guy, right */}
                             <div
                                 className="absolute top-[52%] left-[55%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-30 group cursor-pointer"
-                                onClick={() => setSelectedMember(teamMembers.charles_mcgregor)}
+                                onClick={() => handleMemberClick(teamMembers.charles_mcgregor)}
                             >
                                 <div className="absolute -top-[40px] left-[48%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.12em] whitespace-nowrap">
@@ -1027,11 +1133,10 @@ const LandingHero = () => {
                                 <img src={people3} alt="Team Member" className="w-full h-auto object-cover rounded-lg sm:rounded-xl transition-all duration-700 ease-in-out group-hover:translate-y-10 mt-6" />
                             </div>
 
-                            {/* ROW 4: Person 1 duplicate (bottom-left-center) + Ornament (bottom-right) */}
                             {/* Person 1 duplicate - bottom */}
                             <div
-                                className="absolute top-[70%] left-[23%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-40 group cursor-pointer"
-                                onClick={() => setSelectedMember(teamMembers.bek_massie)}
+                                className="absolute top-[60%] left-[23%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-40 group cursor-pointer"
+                                onClick={() => handleMemberClick(teamMembers.bek_massie)}
                             >
                                 <div className="absolute -top-[40px] left-[58%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
                                     <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
@@ -1044,8 +1149,25 @@ const LandingHero = () => {
                                 <img src={people6} alt="Team Member" className="w-full h-auto object-cover rounded-lg sm:rounded-xl transition-all duration-700 ease-in-out group-hover:translate-y-10" />
                             </div>
 
+                            {/* ROW 4: Person 1 duplicate (bottom-left-center) + Ornament (bottom-right) */}
+                            {/* Person 1 duplicate - bottom */}
+                            <div
+                                className="absolute top-[30%] -right-[5%] w-[31%] rotate-[6deg] hover:rotate-0 transition-transform duration-700 ease-in-out z-40 group cursor-pointer"
+                                onClick={() => handleMemberClick(teamMembers.pranav_chawande)}
+                            >
+                                <div className="absolute -top-[40px] left-[58%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-5 transition-all duration-700 ease-in-out z-20">
+                                    <h3 className="text-[#FDE8D5] text-[14px] md:text-[18px] tracking-[0.2em] whitespace-nowrap">
+                                        Pranav Chawande
+                                    </h3>
+                                    <p className="text-[#FDE8D5] text-[12px] md:text-[14px] tracking-[0.1em] mt-1 whitespace-nowrap">
+                                        PR Guru
+                                    </p>
+                                </div>
+                                <img src={people7} alt="Team Member" className="w-full h-auto object-cover rounded-lg sm:rounded-xl transition-all duration-700 ease-in-out group-hover:translate-y-10" />
+                            </div>
+
                             {/* Vector Ornament - bottom right */}
-                            <img src={vectorOrnament} alt="" className="absolute bottom-[5%] right-0 opacity-80 z-[100]" />
+                            {/* <img src={vectorOrnament} alt="" className="absolute bottom-[5%] right-0 opacity-80 z-[100]" /> */}
 
                         </div>
 
@@ -1072,23 +1194,23 @@ const LandingHero = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-18">
 
                         {/* Card 1 — VAPOUR */}
-                        <div className="bg-[#FDE8D5] rounded-2xl p-8 sm:p-10 flex flex-col">
+                        <div className="bg-[#FDE8D5] rounded-2xl p-8 sm:p-10 flex flex-col transition-transform duration-300 hover:scale-[1.03]">
                             <img
                                 src={partnerLogo1}
                                 alt="Vapour"
-                                className="h-10 w-auto object-contain object-left mb-8"
+                                className="h-18 w-auto object-contain object-left mb-8"
                             />
                             <h3 className="text-[24px] sm:text-[28px] md:text-[32px] font-black tracking-[0.1em] text-[#1E1E1E] mb-4 leading-tight">
-                                Vapour scot
+                                <a href="https://vapour.scot/">Vapour Scot</a>
                                 <br />Partner content
                             </h3>
                             <p className="text-[#595959] text-[14px] sm:text-[16px] tracking-[0.1em] font-medium leading-[1.8] mb-8 flex-1">
-                                Powered by real-time telemetry from <strong><a href="https://vapour.scot/">vapour.Scot</a></strong>, ECOSSE delivers independently monitored whisky cask analytics including ABV, fill levels, and environmental data.<br />
+                                Powered by real-time telemetry from <strong><a href="https://vapour.scot/">Vapour Scot</a></strong>, ECOSSE delivers independently monitored whisky cask analytics including ABV, fill levels, and environmental data.<br />
                                 All telemetry is securely verified, audited, and anchored on-chain to provide transparent and trusted asset provenance for investors.
                             </p>
                             <div>
                                 <a href="https://vapour.scot/" target="_blank" rel="noreferrer">
-                                    <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                                    <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base cursor-pointer">
                                         See More
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <line x1="5" y1="12" x2="19" y2="12" />
@@ -1100,22 +1222,22 @@ const LandingHero = () => {
                         </div>
 
                         {/* Card 2 — FOSTER WHISKY */}
-                        <div className="bg-[#FDE8D5] rounded-2xl p-8 sm:p-10 flex flex-col">
+                        <div className="bg-[#FDE8D5] rounded-2xl p-8 sm:p-10 flex flex-col transition-transform duration-300 hover:scale-[1.03]">
                             <img
                                 src={partnerLogo2}
                                 alt="Foster Whisky"
-                                className="h-10 w-auto object-contain object-left mb-8"
+                                className="h-18 w-auto object-contain object-left mb-8"
                             />
                             <h3 className="text-[24px] sm:text-[28px] md:text-[32px] font-black tracking-[0.1em] text-[#1E1E1E] mb-4 leading-tight">
-                                Foster Whisky <br /> Partner content
+                                <a href="https://www.fosterwhisky.co.uk/">Foster Whisky</a> <br /> Partner content
                             </h3>
                             <p className="text-[#595959] text-[14px] sm:text-[16px] tracking-[0.1em] font-medium leading-[1.8] mb-8 flex-1">
-                                Whisky casks secured under HMRC-regulated bonded custody by Foster Whisky, ensuring compliant storage, provenance protection, and institutional-grade asset security.<br />
+                                Whisky casks secured under HMRC-regulated bonded custody by <strong><a href="https://www.fosterwhisky.co.uk/">Foster Whisky</a></strong>, ensuring compliant storage, provenance protection, and institutional-grade asset security.<br />
                                 ECOSSE partners with trusted bonded warehouse operators to safeguard underlying whisky assets while maintaining transparent ownership and auditability for investors.
                             </p>
                             <div>
                                 <a href="https://www.fosterwhisky.co.uk/" target="_blank" rel="noreferrer">
-                                    <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                                    <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base cursor-pointer">
                                         See More
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <line x1="5" y1="12" x2="19" y2="12" />
@@ -1184,7 +1306,7 @@ const LandingHero = () => {
                 </div>
             </section>
 
-            <section id="faq" className="faqs w-full py-16 sm:py-20 md:py-28 relative overflow-hidden">
+            <section id="faq" className="faqs w-full py-16 relative overflow-hidden">
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Section Header */}
@@ -1201,17 +1323,28 @@ const LandingHero = () => {
                     <div className="space-y-4 mb-16 md:mb-20 px-5 lg:px-[100px]">
                         {[
                             {
-                                q: 'What makes ECOSSE different from gold or other commodities?',
-                                a: 'Most commodities do not improve with age. Single malt Scotch whisky matures over time, becoming increasingly scarce and potentially more valuable as quality develops and evaporation reduces available supply.'
+                                q: 'What is ECOSSE?',
+                                a: 'ECOSSE is a real-world asset (RWA) platform focused on the maturation of Scotch whisky. The platform combines professionally managed whisky assets with blockchain technology to create a transparent and accessible way to follow the value creation of whisky maturation over time.'
+                            },
+
+                            {
+                                q: 'Why Scotch whisky?',
+                                a: 'Scotch whisky is one of the world’s most recognised premium assets, supported by centuries of history, global demand, and a strictly regulated production process. Unlike many traditional assets, whisky matures over time, creating the potential for value appreciation as the spirit ages within the cask.'
                             },
                             {
-                                q: 'How does ECOSSE generate long-term value?',
-                                a: 'ECOSSE captures the economic effects of whisky maturation through regulated custody, fixed-supply token mechanics, and systematic reinvestment into younger casks.'
+                                q: 'What makes ECOSSE different from buying a whisky cask?',
+                                a: 'Owning an individual cask often involves bonded storage, administration, insurance, verification, and exit planning. ECOSSE is designed to provide exposure to a professionally managed whisky ecosystem without requiring users to source, manage, store, or sell individual casks themselves.'
                             },
                             {
-                                q: 'Why is the 7-year maturation cycle important?',
-                                a: 'The maturation period allows whisky to develop increased rarity, complexity, and market value while supporting the ecosystem’s rolling reinvestment model.'
-                            }
+                                q: 'Does ECOSSE own whisky assets?',
+                                a: 'ECOSSE’s model is built around real Scotch whisky assets held within regulated bonded storage environments. Details regarding ownership structures, custody arrangements, and asset verification are published as part of the project’s governance and transparency framework.'
+                            },
+                            {
+                                q: 'Where is the whisky stored?',
+                                a: 'Whisky associated with the ECOSSE ecosystem is stored within HMRC-regulated bonded warehouse facilities in Scotland. These facilities are designed specifically for the secure maturation and storage of Scotch whisky.'
+                            },
+
+
                         ].map((faq, index) => (
                             <div
                                 key={index}
@@ -1246,6 +1379,17 @@ const LandingHero = () => {
                                 </div>
                             </div>
                         ))}
+                        <div className="hidden lg:flex items-center justify-center">
+                            <a href="/faq">
+                                <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base cursor-pointer">
+                                    See More
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12" />
+                                        <polyline points="12 5 19 12 12 19" />
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
                     </div>
 
                     {/* FAQ Bottom Image */}
@@ -1284,7 +1428,7 @@ const LandingHero = () => {
                     >
                         {/* Close button overlaying top right of the image */}
                         <button
-                            className="absolute top-4 right-4 text-white hover:text-white transition-all cursor-pointer bg-black/40 hover:bg-black/60 backdrop-blur-sm p-2 rounded-full z-20 border border-white/10"
+                            className="absolute top-4 right-4 text-white hover:text-white transition-all cursor-pointer bg-black/40 hover:bg-black/60 backdrop-blur-sm p-2 rounded-full z-[100] border border-white/10"
                             onClick={() => setSelectedMember(null)}
                             aria-label="Close modal"
                         >
@@ -1293,34 +1437,83 @@ const LandingHero = () => {
                             </svg>
                         </button>
 
-                        {/* Top: Image */}
-                        <div className="w-full relative overflow-hidden flex justify-center items-center">
-                            <img
-                                src={selectedMember.image}
-                                alt={selectedMember.name}
-                                className="w-full max-w-[250px] h-auto object-cover m-4"
-                            />
-                        </div>
+                        {isSwiperMode ? (
+                            <Swiper
+                                modules={[Navigation, Pagination]}
+                                navigation
+                                pagination={{ clickable: true }}
+                                initialSlide={Object.values(teamMembers).findIndex(m => m.name === selectedMember.name)}
+                                className="w-full pb-10"
+                                style={{
+                                    '--swiper-navigation-color': '#fff',
+                                    '--swiper-pagination-color': '#fff',
+                                    '--swiper-pagination-bullet-inactive-color': '#fff',
+                                    '--swiper-navigation-size': '20px'
+                                }}
+                            >
+                                {Object.values(teamMembers).map((member, idx) => (
+                                    <SwiperSlide key={idx}>
+                                        {/* Top: Image */}
+                                        <div className="w-full relative overflow-hidden flex justify-center items-center">
+                                            <img
+                                                src={member.image}
+                                                alt={member.name}
+                                                className="w-full max-w-[250px] h-auto object-cover m-4"
+                                            />
+                                        </div>
 
-                        {/* Bottom: Name, Role, Bio */}
-                        <div className="w-full px-4 md:px-6 flex flex-col">
-                            <div className="mb-2 text-center">
-                                <h3 className="text-2xl md:text-3xl font-black tracking-wider text-[#FDE8D5] mt-1 uppercase">
-                                    {selectedMember.name}
-                                </h3>
-                                <span
-                                    className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] bg-clip-text text-transparent bg-cover bg-center"
-                                    style={{ backgroundImage: `url(${ecosseBg})` }}
-                                >
-                                    {selectedMember.role}
-                                </span>
+                                        {/* Bottom: Name, Role, Bio */}
+                                        <div className="w-full px-4 md:px-6 flex flex-col pb-6">
+                                            <div className="mb-2 text-center">
+                                                <h3 className="text-2xl md:text-3xl font-black tracking-wider text-[#FDE8D5] mt-1 uppercase">
+                                                    {member.name}
+                                                </h3>
+                                                <span
+                                                    className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] bg-clip-text text-transparent bg-cover bg-center"
+                                                    style={{ backgroundImage: `url(${ecosseBg})` }}
+                                                >
+                                                    {member.role}
+                                                </span>
+                                            </div>
 
+                                            <p className="text-center text-[#E4DDCD] text-sm leading-relaxed tracking-wider font-light mt-2">
+                                                {member.bio}
+                                            </p>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        ) : (
+                            <div className="w-full pb-6">
+                                {/* Top: Image */}
+                                <div className="w-full relative overflow-hidden flex justify-center items-center">
+                                    <img
+                                        src={selectedMember.image}
+                                        alt={selectedMember.name}
+                                        className="w-full max-w-[250px] h-auto object-cover m-4"
+                                    />
+                                </div>
+
+                                {/* Bottom: Name, Role, Bio */}
+                                <div className="w-full px-4 md:px-6 flex flex-col pb-6">
+                                    <div className="mb-2 text-center">
+                                        <h3 className="text-2xl md:text-3xl font-black tracking-wider text-[#FDE8D5] mt-1 uppercase">
+                                            {selectedMember.name}
+                                        </h3>
+                                        <span
+                                            className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] bg-clip-text text-transparent bg-cover bg-center"
+                                            style={{ backgroundImage: `url(${ecosseBg})` }}
+                                        >
+                                            {selectedMember.role}
+                                        </span>
+                                    </div>
+
+                                    <p className="text-center text-[#E4DDCD] text-sm leading-relaxed tracking-wider font-light mt-2">
+                                        {selectedMember.bio}
+                                    </p>
+                                </div>
                             </div>
-
-                            <p className="text-center text-[#E4DDCD] text-sm leading-relaxed tracking-wider font-light mt-2">
-                                {selectedMember.bio}
-                            </p>
-                        </div>
+                        )}
                     </div>
                 </div>
             )}
