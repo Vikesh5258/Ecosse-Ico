@@ -478,7 +478,8 @@ const LandingHero = () => {
 
             {/* Ecosse Coin Banner Section */}
             <section
-                className="w-full bg-[#f9f8f6] bg-cover bg-center py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+                className="w-full bg-[#f9f8f6] bg-cover bg-center py-20 md:py-32 p
+                x-4 sm:px-6 lg:px-8 relative overflow-hidden"
                 style={{ backgroundImage: `url(${topBg})` }}
             >
                 <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center relative z-10">
