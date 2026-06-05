@@ -501,7 +501,7 @@ const LandingHero = () => {
 
                     {/* Right Side Text */}
                     <div className="flex flex-col justify-center text-center md:text-left pl-0 md:pl-8">
-                        <h2 className="text-[48px] sm:text-[64px] lg:text-[80px] xl:text-[96px] text-[#1E1E1E] leading-[1.2] tracking-[0.2em] uppercase">
+                        <h2 className="text-[48px] sm:text-[64px] sm:mt-8 lg:text-[100px] xl:text-[120px] text-[#1E1E1E] leading-[1.2] tracking-[0.2em] uppercase">
                             ECOSSE <br />
                             COIN
                         </h2>
