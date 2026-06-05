@@ -342,7 +342,7 @@ const LandingHero = () => {
 
                                 {/* Barrel - overlaps into right column and onto "MATTERS" heading */}
                                 <div className="relative w-[210px] sm:w-[250px] md:w-[400px] z-10">
-                                    <img src={barrelImg} alt="Whisky Barrel" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] object-contain" />
+                                    <img src={barrelImg} alt="Whisky Barrel" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] object-contain transform-[rotateZ(-25deg)]" />
                                 </div>
                             </div>
 
@@ -501,7 +501,7 @@ const LandingHero = () => {
 
                     {/* Right Side Text */}
                     <div className="flex flex-col justify-center text-center md:text-left pl-0 md:pl-8">
-                        <h2 className="text-[48px] sm:text-[64px] sm:mt-8 lg:text-[100px] xl:text-[120px] text-[#1E1E1E] leading-[1.2] tracking-[0.2em] uppercase">
+                        <h2 className="text-[#B47B59] text-[48px] sm:text-[64px] sm:mt-8 lg:text-[100px] xl:text-[120px] text-[#1E1E1E] leading-[1.2] tracking-[0.2em] uppercase">
                             ECOSSE <br />
                             COIN
                         </h2>

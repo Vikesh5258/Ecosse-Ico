@@ -18,10 +18,10 @@ const LandingFooter = () => {
                         <a href="/pdf-2" className="text-[#1E1E1E] text-[13px] sm:text-[16px] tracking-[0.05em] font-medium hover:text-[#111111] transition-colors duration-300">
                           Warehouse Approval 
                         </a>
-                        <a href="#" className="text-[#1E1E1E] text-[13px] sm:text-[16px] tracking-[0.05em] font-medium hover:text-[#111111] transition-colors duration-300">
+                        <a href="" className="text-[#1E1E1E] text-[13px] sm:text-[16px] tracking-[0.05em] font-medium hover:text-[#111111] transition-colors duration-300">
                             Terms & Condition
                         </a>
-                        <a href="#" className="text-[#1E1E1E] text-[13px] sm:text-[16px] tracking-[0.05em] font-medium hover:text-[#111111] transition-colors duration-300">
+                        <a href="" className="text-[#1E1E1E] text-[13px] sm:text-[16px] tracking-[0.05em] font-medium hover:text-[#111111] transition-colors duration-300">
                             Privacy Policy
                         </a>
                     </div>
