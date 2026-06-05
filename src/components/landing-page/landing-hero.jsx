@@ -521,7 +521,7 @@ const LandingHero = () => {
                             This model combines long-term ecosystem growth with controlled token supply management through scheduled burns, liquidity-based reductions, and treasury-backed deflationary mechanisms designed to support sustainable value appreciation.
                         </p>
                         <p className="text-[#1E1E1E] text-[20px] font-medium tracking-[0.2em] font-thin">
-                            All whisky assets backing the ecosystem are securely stored within licensed Scottish bonded warehouses, ensuring transparency, authenticity, and institutional-grade asset protection.
+                            All whisky assets backing the ecosystem are securely stored within HMRC licensed Scottish bonded warehouses, ensuring transparency, authenticity, and institutional-grade asset protection.
                         </p>
                     </div>
 
@@ -540,7 +540,7 @@ const LandingHero = () => {
                                 <h4 className="text-lg font-bold">18,742</h4>
                             </div>
                         </div> */}
-                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm">
+                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm justify-center">
                             <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px]">
                                 <img
                                     src={tokIcon1}
@@ -553,7 +553,7 @@ const LandingHero = () => {
                                 <h4 className="text-lg font-bold">358.3398B Tokens</h4>
                             </div>
                         </div>
-                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm">
+                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm justify-center">
                             <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px]">
                                 <img
                                     src={tokIcon2}
@@ -797,8 +797,8 @@ const LandingHero = () => {
                 {/* Main Content Section - Background with token-cycle.svg pattern */}
                 <div className="bg-black py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
                     {/* Subtle background pattern overlay */}
-                    <div className="absolute inset-0 z-0 opacity-15"
-                        style={{ backgroundImage: `url(${tokenCycleBg})`, backgroundPosition: 'center', backgroundRepeat: 'repeat' }}></div>
+                    <div className="absolute inset-0 z-0 opacity-15"></div>
+                        
                     <div className="max-w-screen-xl mx-auto px-4 relative z-10">
 
                         {/* Timeline Container */}
@@ -991,10 +991,10 @@ const LandingHero = () => {
             <section id="teams" className="teams w-full bg-[#141414] relative overflow-hidden py-12 sm:py-16 lg:py-20">
 
                 {/* Top-left decorative ornament */}
-                <img src={vectorDecor} alt="" className="absolute top-8 left-8 w-20 sm:w-24 md:w-32 opacity-80" />
+                {/* <img src={vectorDecor} alt="" className="absolute top-8 left-8 w-20 sm:w-24 md:w-32 opacity-80" /> */}
 
                 {/* Bottom-left decorative ornament */}
-                <img src={vectorDecor} alt="" className="absolute bottom-8 left-8 w-20 sm:w-24 md:w-32 opacity-80 -scale-y-100" />
+                {/* <img src={vectorDecor} alt="" className="absolute bottom-8 left-8 w-20 sm:w-24 md:w-32 opacity-80 -scale-y-100" /> */}
 
                 <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
                     <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -1017,10 +1017,10 @@ const LandingHero = () => {
                                 </div>
                             </div>
                             <p className="text-[#E4DDCD] text-[13px] sm:text-[14px] md:text-[20px] tracking-[0.1em] font-medium font-thin">
-                                Seven-year casks have been realized, tokens have been burned, and new casks are continuously minted. We are perpetually adding new cycles. As the net asset value (NAV) grows, the token value increases without any inflation in supply.
+                                ECOSSE is led by a team of whisky industry experts, blockchain professionals, and business leaders committed to modernizing whisky investment. By combining deep sector knowledge with innovative technology, they are building a transparent, secure, and globally accessible platform for digital whisky asset ownership.
                             </p>
 
-                            <button 
+                            <button
                                 onClick={handleSeeMoreClick}
                                 className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] px-4 md:px-8 hover:opacity-90 hover:gap-5 text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300 text-base mt-10 cursor-pointer"
                             >
@@ -1380,7 +1380,7 @@ const LandingHero = () => {
                                 </div>
                             </div>
                         ))}
-                        <div className="hidden lg:flex items-center justify-center">
+                        <div className="flex items-center justify-center">
                             <a href="/faq">
                                 <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base cursor-pointer">
                                     See More
