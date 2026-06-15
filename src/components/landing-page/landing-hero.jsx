@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -11,6 +11,7 @@ import mainCoin from '../../assets/her-main-img.png';
 import topBg from '../../assets/top-bg-img.jpg';
 import coinVideo from '../../assets/video/coin-video-1.mp4';
 import coinVideo2 from '../../assets/video/coin-video-2.mp4';
+import whiskyVideo from '../../assets/video/fooster-video.mp4';
 import barrelImg from '../../assets/second-img.png';
 import featureIcon1 from '../../assets/card-img.png';
 import featureIcon2 from '../../assets/card-img-2.png';
@@ -24,7 +25,7 @@ import tokIcon3 from '../../assets/Tokenomics-icons-3.svg';
 import tokIcon4 from '../../assets/Tokenomics-icons-4.svg';
 import ellipse1 from '../../assets/Ellipse-1.svg';
 import rectangle2 from '../../assets/Rectangle-2.svg';
-import tokenCycleBg from '../../assets/token-cycle.svg';
+import tokenCycleBg from '../../assets/token-cycle.png';
 import phase1 from '../../assets/phase-1.svg';
 import phase2 from '../../assets/phase-2.svg';
 import phase3 from '../../assets/phase-3.svg';
@@ -70,6 +71,7 @@ import partnerLogo1 from '../../assets/0ur-partner-1.svg';
 import partnerLogo2 from '../../assets/0ur-partner-2.svg';
 import partnerFrame1 from '../../assets/our-partner-frame-1.png';
 import partnerFrame2 from '../../assets/our-partner-frame-2.png';
+import caskImg from '../../assets/cask.png'
 
 
 const LandingHero = () => {
@@ -79,6 +81,20 @@ const LandingHero = () => {
     const [openFaq, setOpenFaq] = useState(null);
     const [selectedMember, setSelectedMember] = useState(null);
     const [isSwiperMode, setIsSwiperMode] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
+    const videoRef = useRef(null);
+
+    const handleVideoToggle = () => {
+        if (!videoRef.current) return;
+
+        if (videoRef.current.paused) {
+            videoRef.current.play();
+            setIsPlaying(true);
+        } else {
+            videoRef.current.pause();
+            setIsPlaying(false);
+        }
+    };
 
     const handleSeeMoreClick = () => {
         setSelectedMember(teamMembers.rose_foster);
@@ -89,6 +105,7 @@ const LandingHero = () => {
         setSelectedMember(member);
         setIsSwiperMode(false);
     };
+
 
     const teamMembers = {
         rose_foster: {
@@ -156,6 +173,8 @@ const LandingHero = () => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
+
+
 
     return (
         <>
@@ -290,7 +309,6 @@ const LandingHero = () => {
                                 </a>
                             </div>
                         </div>
-
                     </div>
 
                     {/* Right Coin Side */}
@@ -309,6 +327,56 @@ const LandingHero = () => {
                     </div>
 
                 </div>
+
+            </section>
+
+            <section>
+                <div className="lg:col-span-5 flex justify-center items-center py-10">
+                    <div className="relative transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
+
+                        <video
+                            ref={videoRef}
+                            src={whiskyVideo}
+                            autoPlay
+                            loop
+                            playsInline
+                            controls={false}
+                            className="w-[80%] rounded-[30px]"
+                        />
+
+                        {/* Play / Pause Button */}
+                        <button
+                            onClick={handleVideoToggle}
+                            className="absolute bottom-6 right-[12%] w-14 h-14 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-all duration-300"
+                        >
+                            {isPlaying ? (
+                                // Pause Icon
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="26"
+                                    height="26"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                >
+                                    <rect x="6" y="4" width="4" height="16" rx="1" />
+                                    <rect x="14" y="4" width="4" height="16" rx="1" />
+                                </svg>
+                            ) : (
+                                // Play Icon
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="26"
+                                    height="26"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                >
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            )}
+                        </button>
+
+                    </div>
+                </div>
             </section>
 
             {/* Why Maturation Matters Section */}
@@ -316,7 +384,7 @@ const LandingHero = () => {
 
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-                    {/* Top grid lines: left line | vertical stub | right line */}
+                    {/* Top grid lin                        es: left line | vertical stub | right line */}
                     <div className="hidden md:grid grid-cols-2">
                         <div className="border-b border-[#FDE8D5]"></div>
                         <div className="border-b border-[#FDE8D5] border-l  h-[15vh]"></div>
@@ -378,6 +446,18 @@ const LandingHero = () => {
                 </div>
 
             </section>
+
+            <section>
+                <div className="flex justify-center items-center">
+                    <img
+                        src={caskImg}
+                        alt="Cask"
+                        className="w-full h-auto object-contain"
+                    />
+                </div>
+            </section>
+
+
             {/* Tokenomics & Features Grid Section */}
             <section className="w-full bg-[#FAFAFA] py-16 md:py-24">
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -540,30 +620,41 @@ const LandingHero = () => {
                                 <h4 className="text-lg font-bold">18,742</h4>
                             </div>
                         </div> */}
-                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm justify-center">
-                            <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px]">
+                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center justify-center gap-4 shadow-sm">
+                            <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px] shrink-0">
                                 <img
                                     src={tokIcon1}
                                     alt="Calculator"
                                     className="w-7 h-7 object-contain"
                                 />
                             </div>
-                            <div>
-                                <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Public Sale</span>
-                                <h4 className="text-lg font-bold">358.3398B Tokens</h4>
+
+                            <div className="w-[160px] text-left">
+                                <span className="block text-[10px] text-[#9CA3AF] tracking-[0.1em]">
+                                    Public Sale
+                                </span>
+                                <h4 className="text-lg font-bold">
+                                    358.3398B Tokens
+                                </h4>
                             </div>
                         </div>
-                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center gap-4 shadow-sm justify-center">
-                            <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px]">
+
+                        <div className="bg-[#FDE8D5] rounded-[16px] p-4 flex items-center justify-center gap-4 shadow-sm">
+                            <div className="p-1 bg-[#1E1E1E] w-10 h-10 flex items-center justify-center rounded-[8px] shrink-0">
                                 <img
                                     src={tokIcon2}
                                     alt="Calculator"
                                     className="w-7 h-7 object-contain"
                                 />
                             </div>
-                            <div>
-                                <span className="text-[10px] text-[#9CA3AF] tracking-[0.1em]">Burns</span>
-                                <h4 className="text-lg font-bold">9.1882B</h4>
+
+                            <div className="w-[160px] text-left">
+                                <span className="block text-[10px] text-[#9CA3AF] tracking-[0.1em]">
+                                    Burns
+                                </span>
+                                <h4 className="text-lg font-bold">
+                                    9.1882B
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -781,8 +872,18 @@ const LandingHero = () => {
             </section>
 
             <section id="roadmap" className="roadmap bg-black text-white w-full relative overflow-hidden">
+                <div
+                    className="absolute inset-0 z-0 opacity-100  hidden min-[1024px]:block"
+                    style={{
+                        backgroundImage: `url(${tokenCycleBg})`,
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+
+                    }}
+                ></div>
                 {/* Top header block - Separate background color is plain black */}
-                <div className="bg-black p-12 sm:p-16 md:p-20 p-6 sm:p-8 md:p-10">
+                <div className="relative z-10 p-12 sm:p-16 md:p-20 p-6 sm:p-8 md:p-10">
                     <div className="max-w-screen-xl mx-auto px-4">
                         <h2 className="text-[28px] sm:text-[36px] md:text-[48px] font-black leading-tight tracking-[0.1em] mb-3 md:mb-4 bg-clip-text text-transparent bg-cover bg-center"
                             style={{ backgroundImage: `url(${ecosseBg})` }}>
@@ -795,10 +896,18 @@ const LandingHero = () => {
                 </div>
 
                 {/* Main Content Section - Background with token-cycle.svg pattern */}
-                <div className="bg-black py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
+                <div className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
                     {/* Subtle background pattern overlay */}
-                    <div className="absolute inset-0 z-0 opacity-15"></div>
-                        
+                    {/* <div
+                        className="absolute inset-0 z-0 opacity-100"
+                        style={{
+                            backgroundImage: `url(${tokenCycleBg})`,
+                            backgroundPosition: "center",
+                            backgroundRepeat: "repeat",
+                            backgroundSize: "cover",
+                        }}
+                    ></div> */}
+
                     <div className="max-w-screen-xl mx-auto px-4 relative z-10">
 
                         {/* Timeline Container */}

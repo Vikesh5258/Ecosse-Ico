@@ -6,6 +6,8 @@ import LandingFooter from './components/landing-page/landing-footer';
 import Pdf1Page from './pages/pdf-1';
 import Pdf2Page from './pages/pdf-2';
 import FaqPage from './pages/faq';
+import PrivacyPolicyPage from './pages/privacy-policy';
+import TermsAndConditionsPage from './pages/terms-and-conditions';
 import './App.css';
 
 function ScrollHandler() {
@@ -29,7 +31,7 @@ function ScrollHandler() {
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
       }, 300); // 300ms to ensure the page has rendered
-    } else if (location.pathname === '/') {
+    } else{
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location]);
@@ -60,6 +62,8 @@ function App() {
         <Route path="/pdf-1" element={<Pdf1Page />} />
         <Route path="/pdf-2" element={<Pdf2Page />} />
         <Route path="/faq" element={<FaqPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
