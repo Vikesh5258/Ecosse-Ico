@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -1490,7 +1491,7 @@ const LandingHero = () => {
                             </div>
                         ))}
                         <div className="flex items-center justify-center">
-                            <a href="/faq">
+                            <Link to="/faq">
                                 <button className="inline-flex items-center gap-3 bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 hover:gap-5 text-white font-semibold px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-base cursor-pointer">
                                     See More
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -1498,7 +1499,7 @@ const LandingHero = () => {
                                         <polyline points="12 5 19 12 12 19" />
                                     </svg>
                                 </button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
