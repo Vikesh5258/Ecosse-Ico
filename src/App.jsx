@@ -31,8 +31,8 @@ function ScrollHandler() {
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
       }, 300); // 300ms to ensure the page has rendered
-    } else{
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [location]);
 

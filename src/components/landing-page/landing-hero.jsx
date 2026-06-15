@@ -75,8 +75,8 @@ import caskImg from '../../assets/cask.png'
 
 
 const LandingHero = () => {
-    const fullContractAddress = "0x8c3F45E67890abcdef1234567890abcdef1239a7B";
-    const displayAddress = "0x8c3F...9a7B";
+    const fullContractAddress = "0x6b41571975b3749fE4c013F5c937443f1DF380a5";
+    const displayAddress = "0x6b41...80a5";
     const [copied, setCopied] = useState(false);
     const [openFaq, setOpenFaq] = useState(null);
     const [selectedMember, setSelectedMember] = useState(null);
