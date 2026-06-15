@@ -10,7 +10,7 @@ import cardIcon2 from '../../assets/card-icon-2.svg';
 import cardIcon3 from '../../assets/card-icon-3.svg';
 import mainCoin from '../../assets/her-main-img.png';
 import topBg from '../../assets/top-bg-img.jpg';
-import coinVideo from '../../assets/video/coin-video-1.mp4';
+import coinVideo from '../../assets/video/coin-video-11.mp4';
 import coinVideo2 from '../../assets/video/coin-video-2.mp4';
 import whiskyVideo from '../../assets/video/fooster-video.mp4';
 import barrelImg from '../../assets/second-img.png';
