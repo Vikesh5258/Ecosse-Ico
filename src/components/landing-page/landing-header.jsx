@@ -39,7 +39,7 @@ const LandingHeader = () => {
 
             <header className="w-full bg-[#f6f4f0] fixed top-0 left-0 z-[100] shadow-sm">
                 {/* The background texture can be applied if needed, currently using a subtle off-white/beige */}
-                <div className="px-4 sm:px-6 lg:px-8 h-[110px] flex items-center justify-between">
+                <div className="px-4 sm:px-6 lg:px-8 h-[100px] flex items-center justify-between">
 
                     {/* Logo & Title */}
                     <Link to="/" className="flex items-center gap-3 cursor-pointer no-underline">
