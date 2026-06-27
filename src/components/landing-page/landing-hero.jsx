@@ -269,9 +269,11 @@ const LandingHero = () => {
                                     Buy Now
                                 </button>
                             </a>
-                            <button className="border border-[#B47B59] text-[#B47B59] hover:bg-[#F6EFE9] font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base">
-                                Download Whitepaper
-                            </button>
+                            <a href="/whitepaper">
+                                <button className="border border-[#B47B59] text-[#B47B59] hover:bg-[#F6EFE9] font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base cursor-pointer">
+                                    Whitepaper
+                                </button>
+                            </a>
                         </div>
 
                         {/* Contract Address Section */}

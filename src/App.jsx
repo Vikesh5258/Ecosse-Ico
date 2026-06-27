@@ -8,6 +8,7 @@ import Pdf2Page from './pages/pdf-2';
 import FaqPage from './pages/faq';
 import PrivacyPolicyPage from './pages/privacy-policy';
 import TermsAndConditionsPage from './pages/terms-and-conditions';
+import WhitepaperPage from './pages/whitepaper';
 import './App.css';
 
 function ScrollHandler() {
@@ -64,6 +65,7 @@ function App() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+        <Route path="/whitepaper" element={<WhitepaperPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
