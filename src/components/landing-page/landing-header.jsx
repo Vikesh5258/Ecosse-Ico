@@ -44,7 +44,7 @@ const LandingHeader = () => {
                     {/* Logo & Title */}
                     <Link to="/" className="flex items-center gap-3 cursor-pointer no-underline">
                         <div className="w-20 h-20 rounded-full flex items-center justify-center overflow-hidden">
-                            <img src={headerImg} alt="Ecosse Coin Logo" className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
+                            <img src={headerImg} alt="ECOSSE Coin Logo" className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
                         </div>
                     </Link>
 

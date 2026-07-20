@@ -85,6 +85,46 @@ const LandingHero = () => {
     const [isPlaying, setIsPlaying] = useState(true);
     const videoRef = useRef(null);
 
+    const [showFlowModal, setShowFlowModal] = useState(false);
+    const [modalFadingOut, setModalFadingOut] = useState(false);
+    const [showControls, setShowControls] = useState(true);
+    const controlsTimeoutRef = useRef(null);
+
+    const resetControlsTimeout = () => {
+        setShowControls(true);
+        if (controlsTimeoutRef.current) {
+            clearTimeout(controlsTimeoutRef.current);
+        }
+        controlsTimeoutRef.current = setTimeout(() => {
+            setShowControls(false);
+        }, 4000);
+    };
+
+    const handleCloseFlowModal = () => {
+        setModalFadingOut(true);
+        setTimeout(() => {
+            setShowFlowModal(false);
+            setModalFadingOut(false);
+        }, 700);
+    };
+
+    const handleOpenFlowModal = () => {
+        setModalFadingOut(false);
+        setShowFlowModal(true);
+        resetControlsTimeout();
+    };
+
+    useEffect(() => {
+        if (showFlowModal) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [showFlowModal]);
+
     const handleVideoToggle = () => {
         if (!videoRef.current) return;
 
@@ -113,43 +153,43 @@ const LandingHero = () => {
             name: "Ross Foster",
             role: "Co-Founder / CFO",
             image: team1,
-            bio: "Ross Foster is a visionary entrepreneur and Co-Founder of Foster Whisky, bringing together extensive experience in engineering, construction, and luxury development. As CEO of Snowdrop Developments, he has successfully led high-value residential projects across Scotland, earning a reputation for operational excellence and long-term strategic leadership. With a background that includes service in the Royal Navy and global engineering projects, Ross combines discipline, innovation, and business expertise to help drive the vision of the Ecosse Coin ecosystem and its whisky-backed asset model."
+            bio: "Ross Foster is a visionary entrepreneur and Co-Founder of Foster Whisky, bringing together extensive experience in engineering, construction, and luxury development. As CEO of Snowdrop Developments, he has successfully led high-value residential projects across Scotland, earning a reputation for operational excellence and long-term strategic leadership. With a background that includes service in the Royal Navy and global engineering projects, Ross combines discipline, innovation, and business expertise to help drive the vision of the ECOSSE Coin ecosystem and its whisky-backed asset model."
         },
         dean_thomson: {
             name: "Dean Thomson",
             role: "Operations Director / Warehouse Manager",
             image: team2,
-            bio: "Dean Thomson is a seasoned whisky industry professional and Co-Founder of Foster Whisky, with over a decade of hands-on experience in Scotch whisky production, cask management, maturation, and logistics. Having worked with renowned distilleries including Whyte & Mackay, Dean developed deep expertise across every stage of whisky operations before moving into senior leadership roles within the whisky cask brokerage sector. His extensive industry knowledge and operational insight play a key role in strengthening the authenticity and real-world asset foundation of the Ecosse Coin platform. "
+            bio: "Dean Thomson is a seasoned whisky industry professional and Co-Founder of Foster Whisky, with over a decade of hands-on experience in Scotch whisky production, cask management, maturation, and logistics. Having worked with renowned distilleries including Whyte & Mackay, Dean developed deep expertise across every stage of whisky operations before moving into senior leadership roles within the whisky cask brokerage sector. His extensive industry knowledge and operational insight play a key role in strengthening the authenticity and real-world asset foundation of the ECOSSE Coin platform. "
         },
         rose_blease: {
             name: "Ross Blease",
             role: "Expansion / Site Delivery Manager",
             image: team3,
-            bio: "Ross Blease is an experienced construction and development professional with over 20 years of industry expertise, progressing from a qualified joiner to Managing Director of Snowdrop Developments UK Limited. With a strong background in residential property development, project management, and operational leadership, he has successfully overseen multiple live developments while maintaining high standards of quality, safety, and delivery. Ross combines hands-on technical knowledge with strategic leadership, bringing valuable operational experience and industry insight to the Ecosse Coin ecosystem and its long-term growth vision."
+            bio: "Ross Blease is an experienced construction and development professional with over 20 years of industry expertise, progressing from a qualified joiner to Managing Director of Snowdrop Developments UK Limited. With a strong background in residential property development, project management, and operational leadership, he has successfully overseen multiple live developments while maintaining high standards of quality, safety, and delivery. Ross combines hands-on technical knowledge with strategic leadership, bringing valuable operational experience and industry insight to the ECOSSE Coin ecosystem and its long-term growth vision."
         },
         mark_stenhouse: {
             name: "Mark Stenhouse",
             role: "Finance Director",
             image: team4,
-            bio: "Mark Stenhouse is an accomplished business development professional with over 35 years of experience across the finance, technology, oil, and gas sectors. Throughout his career, he has built strong relationships with high-net-worth individuals, banking institutions, insurance leaders, and major global energy companies including Saudi Aramco, Shell, Total, and Kuwait Oil Company. With extensive international market knowledge and a strong background in strategic growth and commercial development, Mark brings valuable industry expertise and global business connections to the Ecosse Coin ecosystem, supporting its vision of combining premium whisky assets with innovative blockchain technology. "
+            bio: "Mark Stenhouse is an accomplished business development professional with over 35 years of experience across the finance, technology, oil, and gas sectors. Throughout his career, he has built strong relationships with high-net-worth individuals, banking institutions, insurance leaders, and major global energy companies including Saudi Aramco, Shell, Total, and Kuwait Oil Company. With extensive international market knowledge and a strong background in strategic growth and commercial development, Mark brings valuable industry expertise and global business connections to the ECOSSE Coin ecosystem, supporting its vision of combining premium whisky assets with innovative blockchain technology. "
         },
         charles_mcgregor: {
             name: "Charles McGregor",
             role: "Technical Manager",
             image: team5,
-            bio: "Charles McGregor is a highly experienced construction and civil engineering professional with over 20 years of expertise in residential development, infrastructure delivery, and operational leadership. As Managing Director of Snowdrop Developments UK Limited, he has successfully led multi-site developments, managed large civil engineering operations, and delivered projects safely, efficiently, and within budget. His strong technical background, combined with strategic and commercial expertise, has made him a respected leader within the construction industry. Charles is also actively involved in the Ecosse Coin project, a whisky-backed initiative that combines real-world asset value with innovative blockchain technology, further strengthening the project’s industry credibility and long-term vision."
+            bio: "Charles McGregor is a highly experienced construction and civil engineering professional with over 20 years of expertise in residential development, infrastructure delivery, and operational leadership. As Managing Director of Snowdrop Developments UK Limited, he has successfully led multi-site developments, managed large civil engineering operations, and delivered projects safely, efficiently, and within budget. His strong technical background, combined with strategic and commercial expertise, has made him a respected leader within the construction industry. Charles is also actively involved in the ECOSSE Coin project, a whisky-backed initiative that combines real-world asset value with innovative blockchain technology, further strengthening the project’s industry credibility and long-term vision."
         },
         bek_massie: {
             name: "Rebekah Massie",
             role: "Office Manager",
             image: team6,
-            bio: "Rebekah Massie is an experienced operations and administration professional with a strong background in office management, financial coordination, and executive support. As Office Manager at Snowdrop Developments (UK) Ltd, she oversees daily business operations, budgeting, procurement, and organisational processes, ensuring efficiency and compliance across the company. With expertise in team coordination, strategic administration, and operational management, Rebekah brings valuable organisational strength and professional support to the Ecosse Coin ecosystem, contributing to its structured growth and operational excellence."
+            bio: "Rebekah Massie is an experienced operations and administration professional with a strong background in office management, financial coordination, and executive support. As Office Manager at Snowdrop Developments (UK) Ltd, she oversees daily business operations, budgeting, procurement, and organisational processes, ensuring efficiency and compliance across the company. With expertise in team coordination, strategic administration, and operational management, Rebekah brings valuable organisational strength and professional support to the ECOSSE Coin ecosystem, contributing to its structured growth and operational excellence."
         },
         pranav_chawande: {
             name: "Pranav Chawande",
             role: "PR Guru",
             image: team7,
-            bio: "Pranav Chawande is an accomplished international real estate professional with extensive experience across the UK, India, and Dubai property markets. As the founder of Chawande Real Estate, he has built a reputation for delivering exceptional client-focused services, strategic property investments, and long-term wealth creation solutions. With a leadership philosophy centered on trust, integrity, and relationship-driven growth, Pranav has successfully guided investors, homeowners, and high-net-worth individuals through complex real estate opportunities across multiple jurisdictions. His expertise in luxury real estate, market analysis, and business development has established him as a respected figure within the global property sector. Pranav is also actively involved in the Ecosse Coin project, bringing valuable experience in real-world asset management, international investment networks, and strategic business growth, further strengthening the project's vision of combining premium whisky assets with innovative blockchain technology."
+            bio: "Pranav Chawande is an accomplished international real estate professional with extensive experience across the UK, India, and Dubai property markets. As the founder of Chawande Real Estate, he has built a reputation for delivering exceptional client-focused services, strategic property investments, and long-term wealth creation solutions. With a leadership philosophy centered on trust, integrity, and relationship-driven growth, Pranav has successfully guided investors, homeowners, and high-net-worth individuals through complex real estate opportunities across multiple jurisdictions. His expertise in luxury real estate, market analysis, and business development has established him as a respected figure within the global property sector. Pranav is also actively involved in the ECOSSE Coin project, bringing valuable experience in real-world asset management, international investment networks, and strategic business growth, further strengthening the project's vision of combining premium whisky assets with innovative blockchain technology."
         }
     };
 
@@ -242,7 +282,7 @@ const LandingHero = () => {
                         {/* Hero Headings */}
                         <div className="flex flex-col">
                             <h2 className="text-[#B47B59] font-semibold text-[36px] sm:text-[48px] md:text-[72px] leading-none tracking-wide mb-4 sm:mb-5 uppercase">
-                                Ecosse Coin
+                                ECOSSE Coin
                             </h2>
                             <h1 className="text-[#1E1E1E] text-[28px] sm:text-[38px] md:text-[46px] tracking-wide font-semibold">
                                 Tokenized Single Malt <br />
@@ -275,6 +315,13 @@ const LandingHero = () => {
                                     Whitepaper
                                 </button>
                             </a>
+                            <button
+                                onClick={handleOpenFlowModal}
+                                className="border border-[#B47B59] text-[#B47B59] hover:bg-[#F6EFE9] font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base cursor-pointer flex items-center gap-2"
+                            >
+                                <i className="fa-solid fa-circle-play text-lg"></i>
+                                View Tutorial
+                            </button>
                         </div>
 
                         {/* Contract Address Section */}
@@ -398,7 +445,7 @@ const LandingHero = () => {
 
                         <div className="mb-6 mt-2">
                             <span className="text-[20px] sm:text-xs font-bold tracking-[0.25em] text-[#E4DDCD] uppercase">
-                                Why Ecosse
+                                Why ECOSSE
                             </span>
                         </div>
 
@@ -559,7 +606,7 @@ const LandingHero = () => {
                 </div>
             </section>
 
-            {/* Ecosse Coin Banner Section */}
+            {/* ECOSSE Coin Banner Section */}
             <section
                 className="w-full bg-[#f9f8f6] bg-cover bg-center py-20 md:py-32 p
                 x-4 sm:px-6 lg:px-8 relative overflow-hidden"
@@ -714,7 +761,7 @@ const LandingHero = () => {
                         <div className="mb-10">
                             <span className="text-[13px] text-[#1E1E1E] tracking-[0.2em]">Total Supply</span>
                             <h3 className="text-3xl md:text-4xl font-black tracking-[0.05em] mt-1">918,820,000,000</h3>
-                            <span className="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-[0.1em] block mt-2">Ecosse Coin</span>
+                            <span className="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-[0.1em] block mt-2">ECOSSE Coin</span>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -998,7 +1045,7 @@ const LandingHero = () => {
                     {/* Section Header */}
                     <div className="mb-10 sm:mb-14 md:mb-16">
                         <h2 className="text-[32px] sm:text-[40px] md:text-[52px] font-black leading-tight tracking-[0.2em] text-[#1E1E1E] mb-3 md:mb-4">
-                            Why trust<br />Ecosse Coin
+                            Why trust<br />ECOSSE Coin
                         </h2>
                         <p className="text-[#1E1E1E] text-[14px] sm:text-[16px] md:text-[20px] leading-relaxed tracking-[0.2em] font-medium">
                             Regulatory, legal, and operational <br />assurances
@@ -1627,6 +1674,62 @@ const LandingHero = () => {
                                 </div>
                             </div>
                         )}
+                    </div>
+                </div>
+            )}
+
+            {/* View Flow Onboarding Video Modal */}
+            {showFlowModal && (
+                <div
+                    onMouseMove={resetControlsTimeout}
+                    onTouchStart={resetControlsTimeout}
+                    onClick={resetControlsTimeout}
+                    className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 transition-all duration-700 ${
+                        modalFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+                    }`}
+                >
+                    {/* Glassy Blurred Backdrop */}
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={handleCloseFlowModal} />
+
+                    {/* Floating Minimal Premium Container */}
+                    <div
+                        className={`relative w-full max-w-[20rem] sm:max-w-[24rem] flex flex-col items-center gap-6 sm:gap-8 transition-all duration-700 transform z-10 ${
+                            modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
+                        }`}
+                    >
+                        {/* Video Area with Glowing Premium Gold Border */}
+                        <div className="relative w-full aspect-[9/16] bg-[#0d0d0d] rounded-[2rem] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group">
+                            
+                            {/* Top Close Button (Overlapping Video) */}
+                            <button
+                                onClick={handleCloseFlowModal}
+                                className={`absolute top-4 right-4 z-20 p-2.5 sm:p-3 bg-[#111]/90 hover:bg-[#C58E6D]/30 border border-[#C58E6D]/40 hover:border-[#C58E6D] rounded-full text-white/90 hover:text-white transition-all duration-500 hover:scale-110 shadow-2xl cursor-pointer flex items-center justify-center ${
+                                    showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                                }`}
+                            >
+                                <i className="fa-solid fa-xmark text-xl leading-none"></i>
+                            </button>
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1_O7ocntQokUJ3pMZ6Rq1Bh-chnplfjq8/preview?autoplay=1&mute=1"
+                                allow="autoplay; fullscreen"
+                                className="w-[170%] h-[170%] border-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none rounded-[2rem]"
+                            ></iframe>
+                        </div>
+
+                        {/* Sleek Premium Floating Action Button */}
+                        <div
+                            className={`w-full flex justify-center transition-all duration-500 ${
+                                showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                            }`}
+                        >
+                            <button
+                                onClick={handleCloseFlowModal}
+                                className="w-full sm:w-[85%] text-[#C58E6D] hover:text-[#e0cdb8] hover:bg-[#C58E6D]/20 rounded-full py-4 sm:py-5 font-black uppercase tracking-[0.25em] bg-[#111]/90 border border-[#C58E6D]/50 hover:border-[#C58E6D] shadow-[0_0_35px_rgba(197,142,109,0.2)] transition-all duration-300 hover:shadow-[0_0_50px_rgba(197,142,109,0.4)] hover:-translate-y-1 cursor-pointer"
+                            >
+                                Skip
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
