@@ -114,6 +114,35 @@ const LandingHero = () => {
         resetControlsTimeout();
     };
 
+    const [isOnboardingPlaying, setIsOnboardingPlaying] = useState(true);
+    const onboardingVideoRef = useRef(null);
+
+    const toggleOnboardingPlay = (e) => {
+        e.stopPropagation();
+        if (onboardingVideoRef.current) {
+            if (isOnboardingPlaying) {
+                onboardingVideoRef.current.pause();
+            } else {
+                onboardingVideoRef.current.play();
+            }
+            setIsOnboardingPlaying(!isOnboardingPlaying);
+        }
+    };
+
+    const skipOnboardingForward = (e) => {
+        e.stopPropagation();
+        if (onboardingVideoRef.current) {
+            onboardingVideoRef.current.currentTime += 10;
+        }
+    };
+
+    const skipOnboardingBackward = (e) => {
+        e.stopPropagation();
+        if (onboardingVideoRef.current) {
+            onboardingVideoRef.current.currentTime -= 10;
+        }
+    };
+
     useEffect(() => {
         if (showFlowModal) {
             document.body.style.overflow = "hidden";
@@ -1684,44 +1713,60 @@ const LandingHero = () => {
                     onMouseMove={resetControlsTimeout}
                     onTouchStart={resetControlsTimeout}
                     onClick={resetControlsTimeout}
-                    className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 transition-all duration-700 ${
-                        modalFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
-                    }`}
+                    className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 transition-all duration-700 ${modalFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+                        }`}
                 >
                     {/* Glassy Blurred Backdrop */}
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={handleCloseFlowModal} />
 
                     {/* Floating Minimal Premium Container */}
                     <div
-                        className={`relative w-full max-w-[20rem] sm:max-w-[24rem] flex flex-col items-center gap-6 sm:gap-8 transition-all duration-700 transform z-10 ${
-                            modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
-                        }`}
+                        className={`relative w-full max-w-[22rem] sm:max-w-[26rem] md:max-w-[28rem] flex flex-col items-center gap-5 sm:gap-6 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
+                            }`}
                     >
                         {/* Video Area with Glowing Premium Gold Border */}
-                        <div className="relative w-full aspect-[9/16] bg-[#0d0d0d] rounded-[2rem] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group">
-                            
+                        <div className="relative w-full aspect-[9/16] bg-[#0d0d0d] rounded-[2rem] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]">
+
                             {/* Top Close Button (Overlapping Video) */}
                             <button
                                 onClick={handleCloseFlowModal}
-                                className={`absolute top-4 right-4 z-20 p-2.5 sm:p-3 bg-[#111]/90 hover:bg-[#C58E6D]/30 border border-[#C58E6D]/40 hover:border-[#C58E6D] rounded-full text-white/90 hover:text-white transition-all duration-500 hover:scale-110 shadow-2xl cursor-pointer flex items-center justify-center ${
-                                    showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-                                }`}
+                                className={`absolute top-4 right-4 z-20 p-2.5 sm:p-3 bg-[#111]/90 hover:bg-[#C58E6D]/30 border border-[#C58E6D]/40 hover:border-[#C58E6D] rounded-full text-white/90 hover:text-white transition-all duration-500 hover:scale-110 shadow-2xl cursor-pointer flex items-center justify-center ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                                    }`}
                             >
                                 <i className="fa-solid fa-xmark text-xl leading-none"></i>
                             </button>
 
-                            <iframe
-                                src="https://drive.google.com/file/d/1_O7ocntQokUJ3pMZ6Rq1Bh-chnplfjq8/preview?autoplay=1&mute=1"
-                                allow="autoplay; fullscreen"
-                                className="w-[170%] h-[170%] border-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none rounded-[2rem]"
-                            ></iframe>
+                            <video
+                                ref={onboardingVideoRef}
+                                src="/videos/ecos-tutorial.mp4"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className="w-full h-full object-cover rounded-[2rem] z-0 pointer-events-none block"
+                            ></video>
+
+                            {/* Custom Video Controls */}
+                            <div
+                                className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 transition-opacity duration-500 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
+                                    }`}
+                            >
+                                <button onClick={skipOnboardingBackward} className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-[#C58E6D]/80 border border-[#C58E6D]/40 rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 cursor-pointer">
+                                    <i className="fa-solid fa-backward text-sm"></i>
+                                </button>
+                                <button onClick={toggleOnboardingPlay} className="w-12 h-12 flex items-center justify-center bg-[#C58E6D]/80 hover:bg-[#C58E6D] border border-[#C58E6D] rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 shadow-lg shadow-[#C58E6D]/30 cursor-pointer">
+                                    <i className={`fa-solid ${isOnboardingPlaying ? 'fa-pause' : 'fa-play'} text-lg`}></i>
+                                </button>
+                                <button onClick={skipOnboardingForward} className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-[#C58E6D]/80 border border-[#C58E6D]/40 rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 cursor-pointer">
+                                    <i className="fa-solid fa-forward text-sm"></i>
+                                </button>
+                            </div>
                         </div>
 
                         {/* Sleek Premium Floating Action Button */}
                         <div
-                            className={`w-full flex justify-center transition-all duration-500 ${
-                                showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-                            }`}
+                            className={`w-full flex justify-center transition-all duration-500 ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                                }`}
                         >
                             <button
                                 onClick={handleCloseFlowModal}
