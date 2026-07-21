@@ -1721,11 +1721,10 @@ const LandingHero = () => {
 
                     {/* Floating Minimal Premium Container */}
                     <div
-                        className={`relative w-full max-w-[22rem] sm:max-w-[26rem] md:max-w-[28rem] flex flex-col items-center gap-5 sm:gap-6 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
+                        className={`relative w-full max-w-[90vw] sm:max-w-[26rem] md:max-w-[28rem] h-[90vh] max-h-[800px] flex flex-col gap-4 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
                             }`}
                     >
-                        {/* Video Area with Glowing Premium Gold Border */}
-                        <div className="relative w-full aspect-[9/16] bg-[#0d0d0d] rounded-[2rem] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]">
+                        <div className="relative w-full flex-1 min-h-0 bg-[#0d0d0d] rounded-[2rem] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]">
 
                             {/* Top Close Button (Overlapping Video) */}
                             <button
@@ -1743,7 +1742,7 @@ const LandingHero = () => {
                                 muted
                                 loop
                                 playsInline
-                                className="w-full h-full object-cover rounded-[2rem] z-0 pointer-events-none block"
+                                className="w-full h-full object-contain rounded-[2rem] z-0 pointer-events-none block"
                             ></video>
 
                             {/* Custom Video Controls */}
