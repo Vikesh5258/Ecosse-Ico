@@ -84,7 +84,7 @@ const LandingHero = () => {
     const [openFaq, setOpenFaq] = useState(null);
     const [selectedMember, setSelectedMember] = useState(null);
     const [isSwiperMode, setIsSwiperMode] = useState(false);
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
 
     const [showFlowModal, setShowFlowModal] = useState(false);
@@ -103,20 +103,32 @@ const LandingHero = () => {
     };
 
     const handleCloseFlowModal = () => {
-        setModalFadingOut(true);
-        setTimeout(() => {
-            setShowFlowModal(false);
-            setModalFadingOut(false);
-        }, 700);
+        setShowFlowModal(false);
+        if (onboardingVideoRef.current) {
+            onboardingVideoRef.current.pause();
+            onboardingVideoRef.current.currentTime = 0;
+        }
     };
 
     const handleOpenFlowModal = () => {
-        setModalFadingOut(false);
         setShowFlowModal(true);
         resetControlsTimeout();
+        if (videoRef.current) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+        }
+        if (onboardingVideoRef.current) {
+            onboardingVideoRef.current.currentTime = 0;
+            const playPromise = onboardingVideoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setIsOnboardingPlaying(true);
+                }).catch(e => console.log("Autoplay prevented:", e));
+            }
+        }
     };
 
-    const [isOnboardingPlaying, setIsOnboardingPlaying] = useState(true);
+    const [isOnboardingPlaying, setIsOnboardingPlaying] = useState(false);
     const onboardingVideoRef = useRef(null);
 
     const toggleOnboardingPlay = (e) => {
@@ -422,6 +434,8 @@ const LandingHero = () => {
                             loop
                             playsInline
                             controls={false}
+                            onPlay={() => setIsPlaying(true)}
+                            onPause={() => setIsPlaying(false)}
                             className="w-[80%] rounded-[30px]"
                         />
 
@@ -1710,74 +1724,74 @@ const LandingHero = () => {
             )}
 
             {/* View Flow Onboarding Video Modal */}
-            {showFlowModal && (
+            <div
+                onMouseMove={resetControlsTimeout}
+                onTouchStart={resetControlsTimeout}
+                onClick={resetControlsTimeout}
+                className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 ${!showFlowModal ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+                style={{ visibility: !showFlowModal ? 'hidden' : 'visible' }}
+            >
+                {/* Glassy Blurred Backdrop */}
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" onClick={handleCloseFlowModal} />
+
+                {/* Floating Minimal Premium Container */}
                 <div
-                    onMouseMove={resetControlsTimeout}
-                    onTouchStart={resetControlsTimeout}
-                    onClick={resetControlsTimeout}
-                    className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 transition-all duration-700 ${modalFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+                    className={`relative w-full max-w-[90vw] sm:max-w-[26rem] md:max-w-[28rem] h-[90vh] max-h-[800px] flex flex-col gap-4 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
                         }`}
                 >
-                    {/* Glassy Blurred Backdrop */}
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={handleCloseFlowModal} />
+                    <div className="relative w-full flex justify-center items-center bg-[#0d0d0d] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]">
 
-                    {/* Floating Minimal Premium Container */}
-                    <div
-                        className={`relative w-fit mx-auto flex flex-col gap-4 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
-                            }`}
-                    >
-                        <div className="relative w-full flex justify-center items-center bg-[#0d0d0d] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]">
-
-                            {/* Top Close Button (Overlapping Video) */}
-                            <button
-                                onClick={handleCloseFlowModal}
-                                className={`absolute top-4 right-4 z-20 p-2.5 sm:p-3 bg-[#111]/90 hover:bg-[#C58E6D]/30 border border-[#C58E6D]/40 hover:border-[#C58E6D] rounded-full text-white/90 hover:text-white transition-all duration-500 hover:scale-110 shadow-2xl cursor-pointer flex items-center justify-center ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-                                    }`}
-                            >
-                                <i className="fa-solid fa-xmark text-[12px] leading-none"></i>
-                            </button>
-
-                            <video
-                                ref={onboardingVideoRef}
-                                src={ecoads}
-                                autoPlay
-                                loop
-                                playsInline
-                                className="w-auto h-auto max-w-[90vw] sm:max-w-[26rem] md:max-w-[28rem] max-h-[80vh] md:max-h-[75vh] object-cover z-0 pointer-events-none block"
-                            ></video>
-
-                            {/* Custom Video Controls */}
-                            <div
-                                className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 transition-opacity duration-500 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
-                                    }`}
-                            >
-                                <button onClick={skipOnboardingBackward} className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-[#C58E6D]/80 border border-[#C58E6D]/40 rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 cursor-pointer">
-                                    <i className="fa-solid fa-backward text-sm"></i>
-                                </button>
-                                <button onClick={toggleOnboardingPlay} className="w-12 h-12 flex items-center justify-center bg-[#C58E6D]/80 hover:bg-[#C58E6D] border border-[#C58E6D] rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 shadow-lg shadow-[#C58E6D]/30 cursor-pointer">
-                                    <i className={`fa-solid ${isOnboardingPlaying ? 'fa-pause' : 'fa-play'} text-lg`}></i>
-                                </button>
-                                <button onClick={skipOnboardingForward} className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-[#C58E6D]/80 border border-[#C58E6D]/40 rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 cursor-pointer">
-                                    <i className="fa-solid fa-forward text-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Sleek Premium Floating Action Button */}
-                        <div
-                            className={`w-full flex justify-center transition-all duration-500 ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                        {/* Top Close Button (Overlapping Video) */}
+                        <button
+                            onClick={handleCloseFlowModal}
+                            className={`absolute top-4 right-4 z-20 p-2.5 sm:p-3 bg-[#111]/90 hover:bg-[#C58E6D]/30 border border-[#C58E6D]/40 hover:border-[#C58E6D] rounded-full text-white/90 hover:text-white transition-all duration-500 hover:scale-110 shadow-2xl cursor-pointer flex items-center justify-center ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                                 }`}
                         >
-                            <button
-                                onClick={handleCloseFlowModal}
-                                className="w-full sm:w-[85%] text-[#C58E6D] hover:text-[#e0cdb8] hover:bg-[#C58E6D]/20 rounded-full py-4 sm:py-5 font-black uppercase tracking-[0.25em] bg-[#111]/90 border border-[#C58E6D]/50 hover:border-[#C58E6D] shadow-[0_0_35px_rgba(197,142,109,0.2)] transition-all duration-300 hover:shadow-[0_0_50px_rgba(197,142,109,0.4)] hover:-translate-y-1 cursor-pointer"
-                            >
-                                Skip
+                            <i className="fa-solid fa-xmark text-[12px] leading-none"></i>
+                        </button>
+
+                        <video
+                            ref={onboardingVideoRef}
+                            src="/videos/ecos-tutorial.mp4"
+                            autoPlay
+                            loop
+                            playsInline
+                            onPlay={() => setIsOnboardingPlaying(true)}
+                            onPause={() => setIsOnboardingPlaying(false)}
+                            className="w-full h-full object-contain rounded-[2rem] z-0 pointer-events-none block"
+                        ></video>
+
+                        {/* Custom Video Controls */}
+                        <div
+                            className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 transition-opacity duration-500 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
+                                }`}
+                        >
+                            <button onClick={skipOnboardingBackward} className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-[#C58E6D]/80 border border-[#C58E6D]/40 rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 cursor-pointer">
+                                <i className="fa-solid fa-backward text-sm"></i>
+                            </button>
+                            <button onClick={toggleOnboardingPlay} className="w-12 h-12 flex items-center justify-center bg-[#C58E6D]/80 hover:bg-[#C58E6D] border border-[#C58E6D] rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 shadow-lg shadow-[#C58E6D]/30 cursor-pointer">
+                                <i className={`fa-solid ${isOnboardingPlaying ? 'fa-pause' : 'fa-play'} text-lg`}></i>
+                            </button>
+                            <button onClick={skipOnboardingForward} className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-[#C58E6D]/80 border border-[#C58E6D]/40 rounded-full text-white backdrop-blur-sm transition-all hover:scale-110 cursor-pointer">
+                                <i className="fa-solid fa-forward text-sm"></i>
                             </button>
                         </div>
                     </div>
+
+                    {/* Sleek Premium Floating Action Button */}
+                    <div
+                        className={`w-full flex justify-center transition-all duration-500 ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                            }`}
+                    >
+                        <button
+                            onClick={handleCloseFlowModal}
+                            className="w-full sm:w-[85%] text-[#C58E6D] hover:text-[#e0cdb8] hover:bg-[#C58E6D]/20 rounded-full py-4 sm:py-5 font-black uppercase tracking-[0.25em] bg-[#111]/90 border border-[#C58E6D]/50 hover:border-[#C58E6D] shadow-[0_0_35px_rgba(197,142,109,0.2)] transition-all duration-300 hover:shadow-[0_0_50px_rgba(197,142,109,0.4)] hover:-translate-y-1 cursor-pointer"
+                        >
+                            Skip
+                        </button>
+                    </div>
                 </div>
-            )}
+            </div>
         </>
     );
 };
