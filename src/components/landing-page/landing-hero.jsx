@@ -1736,7 +1736,7 @@ const LandingHero = () => {
 
                 {/* Floating Minimal Premium Container */}
                 <div
-                    className={`relative w-full max-w-[90vw] sm:max-w-[26rem] md:max-w-[28rem] h-[90vh] max-h-[800px] flex flex-col gap-4 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
+                    className={`relative w-fit mx-auto flex flex-col gap-4 transition-all duration-700 transform z-10 ${modalFadingOut ? "scale-95 translate-y-12" : "scale-100 translate-y-0"
                         }`}
                 >
                     <div className="relative w-full flex justify-center items-center bg-[#0d0d0d] overflow-hidden shadow-[0_0_60px_rgba(197,142,109,0.3)] border-2 border-[#C58E6D]/80 ring-1 ring-[#C58E6D]/40 pointer-events-auto group [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]">
@@ -1756,9 +1756,11 @@ const LandingHero = () => {
                             autoPlay
                             loop
                             playsInline
+                            preload="auto"
+                            fetchpriority="high"
                             onPlay={() => setIsOnboardingPlaying(true)}
                             onPause={() => setIsOnboardingPlaying(false)}
-                            className="w-full h-full object-contain rounded-[2rem] z-0 pointer-events-none block"
+                            className="w-auto h-auto max-w-[90vw] sm:max-w-[26rem] md:max-w-[28rem] max-h-[65vh] md:max-h-[75vh] object-cover z-0 pointer-events-none block"
                         ></video>
 
                         {/* Custom Video Controls */}
