@@ -1734,14 +1734,13 @@ const LandingHero = () => {
                                 className={`absolute top-4 right-4 z-20 p-2.5 sm:p-3 bg-[#111]/90 hover:bg-[#C58E6D]/30 border border-[#C58E6D]/40 hover:border-[#C58E6D] rounded-full text-white/90 hover:text-white transition-all duration-500 hover:scale-110 shadow-2xl cursor-pointer flex items-center justify-center ${showControls ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                                     }`}
                             >
-                                <i className="fa-solid fa-xmark text-xl leading-none"></i>
+                                <i className="fa-solid fa-xmark text-[12px] leading-none"></i>
                             </button>
 
                             <video
                                 ref={onboardingVideoRef}
                                 src={ecoads}
                                 autoPlay
-                                muted
                                 loop
                                 playsInline
                                 className="w-auto h-auto max-w-[90vw] sm:max-w-[26rem] md:max-w-[28rem] max-h-[80vh] md:max-h-[75vh] object-cover z-0 pointer-events-none block"
