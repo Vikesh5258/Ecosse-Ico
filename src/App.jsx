@@ -50,6 +50,8 @@ function HomePage() {
   );
 }
 
+import ChatWidget from './components/ChatWidget';
+
 function App() {
   return (
     <BrowserRouter>
@@ -68,6 +70,7 @@ function App() {
         <Route path="/whitepaper" element={<WhitepaperPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
+      <ChatWidget />
     </BrowserRouter>
   );
 }
