@@ -50,11 +50,8 @@ const TermsAndConditionsPage = () => {
                                 <p>Accounts that are company-verified are allowed the following exemptions from these Terms of Service and Use:</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>A company may have several active user accounts at any time, provided they are all company-verified and operated by a single employee of the company. A single employee may only register and operate a single account.</li>
-                                    <li>A company may have active advertisements from several accounts with the following exceptions:
-                                        <ul className="list-circle pl-6 space-y-2 mt-2">
-                                            <li>Ads are not allowed to overlap between accounts. E.g. you're not allowed to create advertisements using the same limits with the same price in the same payment method category in the same country.</li>
-                                        </ul>
-                                    </li>
+                                    <li>A company may have active advertisements from several accounts with the following exceptions: </li>
+                                    <li>Ads are not allowed to overlap between accounts. E.g. you're not allowed to create advertisements using the same limits with the same price in the same payment method category in the same country.</li>
                                 </ul>
                             </div>
                         </section>

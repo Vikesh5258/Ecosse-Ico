@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, EffectFlip } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-flip';
 import cardIcon1 from '../../assets/card-icon-1.svg';
 import cardIcon2 from '../../assets/card-icon-2.svg';
 import cardIcon3 from '../../assets/card-icon-3.svg';
@@ -75,7 +76,8 @@ import partnerFrame2 from '../../assets/our-partner-frame-2.png';
 import caskImg from '../../assets/cask.png'
 
 import ecoads from '../../assets/video/ecos-tutorial.mp4'
-
+import adv1 from '../../assets/adv-1.png';
+import adv2 from '../../assets/adv-2.png';
 
 const LandingHero = () => {
     const fullContractAddress = "0x6b41571975b3749fE4c013F5c937443f1DF380a5";
@@ -1380,6 +1382,48 @@ const LandingHero = () => {
                 </div>
             </section>
 
+            <section className="board-of-advisors w-full py-16 sm:py-20 relative overflow-hidden bg-white">
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="mb-10 sm:mb-14 text-center">
+                        <h2 className="text-[36px] sm:text-[44px] md:text-[52px] font-black leading-tight tracking-[0.12em] text-[#1E1E1E] mb-3 md:mb-4 uppercase">
+                            Board Of Advisors
+                        </h2>
+                        <div className="h-1 w-24 bg-[#C58E6D] mx-auto rounded-full"></div>
+                    </div>
+                    <div className="px-2 lg:px-8">
+                        <Swiper
+                            effect={'flip'}
+                            grabCursor={true}
+                            modules={[EffectFlip, Pagination, Autoplay]}
+                            slidesPerView={1}
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay:5000, disableOnInteraction: false }}
+                            className="advisors-swiper !pb-14 max-w-[600px] w-full"
+                        >
+                            <SwiperSlide className="h-auto">
+                                <div className="bg-[#FAFAFA] rounded-[20px] p-6 sm:p-8 shadow-sm border border-[#F0EAE5] transition-transform duration-300 hover:scale-[1.02] flex flex-col h-full">
+                                    <img src={adv1} alt="P. Barbara Coleman" className="w-full max-h-[300px] object-contain rounded-xl mb-6" />
+                                    <h3 className="text-[22px] sm:text-[26px] font-bold text-[#1E1E1E] mb-4 text-center">P. Barbara Coleman</h3>
+                                    <div className="text-[#595959] text-[14px] sm:text-[15px] leading-[1.8] space-y-4 text-left">
+                                        <p>P. Barbara Coleman is a seasoned business executive, international venture consultant, and ministry leader with over 30 years of experience in business management, commercial finance, mortgage lending, and business acquisitions. She has successfully led business development and strategic growth initiatives, including the construction and development of multiple Taco Bell locations. As the Founder and Senior Pastor of an international ministry for over 22 years, Barbara brings extensive leadership, organizational, and community-building experience, complemented by her international missionary work and global trade expertise. Her strategic vision, business acumen, and commitment to servant leadership strengthen the platform’s focus on empowering businesses, organizations, and communities.</p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide className="h-auto">
+                                <div className="bg-[#FAFAFA] rounded-[20px] p-6 sm:p-8 shadow-sm border border-[#F0EAE5] transition-transform duration-300 hover:scale-[1.02] flex flex-col h-full">
+                                    <img src={adv2} alt="Samit" className="w-full max-h-[300px] object-contain rounded-xl mb-6" />
+                                    <h3 className="text-[22px] sm:text-[26px] font-bold text-[#1E1E1E] mb-4 text-center">Samit</h3>
+                                    <div className="text-[#595959] text-[14px] sm:text-[15px] leading-[1.8] space-y-4 text-left">
+                                        <p>Samit is a highly experienced financial services executive with over 20 years of expertise spanning commodities, investment banking, risk advisory, and management consulting. Throughout his career, he has held senior leadership roles with leading global institutions, including Capco, where he led the Collateral Management, Funding, and Liquidity Management practice. His extensive experience covers strategic planning, governance, risk management, operational transformation, and financial services advisory. Samit has a proven track record of working with organisations to navigate complex business and regulatory challenges, strengthen operational frameworks, and implement sustainable growth strategies. His combination of financial expertise, strategic leadership, and transformation experience brings valuable insight to organisations operating in complex and evolving financial markets.</p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                            {/* Future cards can be added as new SwiperSlide components here */}
+                        </Swiper>
+                    </div>
+                </div>
+            </section>
+
             <section className='our-partners' id="our-partners">
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1474,6 +1518,8 @@ const LandingHero = () => {
 
                 </div>
             </section>
+
+
 
             <section className="foster-whisky w-full py-16 sm:py-20 md:py-28 relative overflow-hidden">
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -9,7 +9,7 @@ const LandingHeader = () => {
     const scrollToSection = (e, sectionId) => {
         e.preventDefault();
         setIsMobileMenuOpen(false);
- 
+
         const element = document.getElementById(sectionId);
         if (element) {
             // Already on home page — smooth scroll
@@ -108,9 +108,14 @@ const LandingHeader = () => {
                                 </a>
                             ))}
                         </nav>
-                        <button className="w-[180px] mx-auto bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 text-white font-medium px-4 py-3 rounded-[8px] shadow-sm transition-all duration-300 text-[15px] cursor-pointer">
+                        <a
+                            href="https://www.ecosse-coin.io/dashboard"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-[180px] mx-auto bg-[linear-gradient(104.84deg,#C58E6D_0%,#8C5A3C_100%)] hover:opacity-90 text-white font-medium px-4 py-3 rounded-[8px] shadow-sm transition-all duration-300 text-[15px] cursor-pointer flex items-center justify-center"
+                        >
                             Get Started
-                        </button>
+                        </a>
                     </div>
                 )}
             </header>
