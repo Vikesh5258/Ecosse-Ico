@@ -1397,7 +1397,8 @@ const LandingHero = () => {
                             modules={[EffectFlip, Pagination, Autoplay]}
                             slidesPerView={1}
                             pagination={{ clickable: true }}
-                            autoplay={{ delay:5000, disableOnInteraction: false }}
+                            autoplay={{ delay:15000, disableOnInteraction: false }}
+                            loop={true}
                             className="advisors-swiper !pb-14 max-w-[600px] w-full"
                         >
                             <SwiperSlide className="h-auto">
