@@ -427,7 +427,7 @@ const LandingHero = () => {
 
             <section>
                 <div className="lg:col-span-5 flex justify-center items-center py-10">
-                    <div className="relative transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center">
+                    <div className="relative transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center px-4">
 
                         <video
                             ref={videoRef}
@@ -438,13 +438,13 @@ const LandingHero = () => {
                             controls={false}
                             onPlay={() => setIsPlaying(true)}
                             onPause={() => setIsPlaying(false)}
-                            className="w-[80%] rounded-[30px]"
+                            className="rounded-[30px]"
                         />
 
                         {/* Play / Pause Button */}
                         <button
                             onClick={handleVideoToggle}
-                            className="absolute bottom-6 right-[12%] w-14 h-14 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-all duration-300"
+                            className="absolute bottom-6 right-[4%] w-14 h-14 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-all duration-300"
                         >
                             {isPlaying ? (
                                 // Pause Icon
