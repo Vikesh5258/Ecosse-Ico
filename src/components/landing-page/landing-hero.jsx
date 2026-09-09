@@ -14,6 +14,7 @@ import topBg from '../../assets/top-bg-img.jpg';
 import coinVideo from '../../assets/video/coin-video-11.mp4';
 import coinVideo2 from '../../assets/video/coin-video-2.mp4';
 import whiskyVideo from '../../assets/video/fooster-video.mp4';
+import launchEventVideo from '../../assets/video/launch-event.mp4';
 import barrelImg from '../../assets/second-img.png';
 import featureIcon1 from '../../assets/card-img.png';
 import featureIcon2 from '../../assets/card-img-2.png';
@@ -88,6 +89,7 @@ const LandingHero = () => {
     const [isSwiperMode, setIsSwiperMode] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
+    const [selectedVideoModal, setSelectedVideoModal] = useState(null);
 
     const [showFlowModal, setShowFlowModal] = useState(false);
     const [modalFadingOut, setModalFadingOut] = useState(false);
@@ -160,7 +162,7 @@ const LandingHero = () => {
     };
 
     useEffect(() => {
-        if (showFlowModal) {
+        if (showFlowModal || selectedVideoModal) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "unset";
@@ -168,7 +170,7 @@ const LandingHero = () => {
         return () => {
             document.body.style.overflow = "unset";
         };
-    }, [showFlowModal]);
+    }, [showFlowModal, selectedVideoModal]);
 
     const handleVideoToggle = () => {
         if (!videoRef.current) return;
@@ -425,53 +427,52 @@ const LandingHero = () => {
 
             </section>
 
-            <section>
-                <div className="lg:col-span-5 flex justify-center items-center py-10">
-                    <div className="relative transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center px-4">
-
+            <section className="py-10 px-4">
+                <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-center items-center gap-8">
+                    {/* First Video Card */}
+                    <div
+                        onClick={() => setSelectedVideoModal(whiskyVideo)}
+                        className="relative w-full max-w-[500px] aspect-video rounded-[30px] cursor-pointer transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center group shadow-xl border border-white/20 bg-black"
+                    >
                         <video
-                            ref={videoRef}
                             src={whiskyVideo}
                             autoPlay
                             loop
+                            muted
                             playsInline
-                            controls={false}
-                            onPlay={() => setIsPlaying(true)}
-                            onPause={() => setIsPlaying(false)}
-                            className="rounded-[30px]"
+                            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
                         />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-white/30 transition-all duration-300 mb-4">
+                                <i className="fa-solid fa-play text-white text-2xl ml-1"></i>
+                            </div>
+                            <span className="text-white font-bold text-xl sm:text-2xl tracking-[0.15em] uppercase drop-shadow-lg">
+                                The Beginning
+                            </span>
+                        </div>
+                    </div>
 
-                        {/* Play / Pause Button */}
-                        <button
-                            onClick={handleVideoToggle}
-                            className="absolute bottom-6 right-[4%] w-14 h-14 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-all duration-300"
-                        >
-                            {isPlaying ? (
-                                // Pause Icon
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="26"
-                                    height="26"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                >
-                                    <rect x="6" y="4" width="4" height="16" rx="1" />
-                                    <rect x="14" y="4" width="4" height="16" rx="1" />
-                                </svg>
-                            ) : (
-                                // Play Icon
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="26"
-                                    height="26"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                >
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                            )}
-                        </button>
-
+                    {/* Second Video Card */}
+                    <div
+                        onClick={() => setSelectedVideoModal(launchEventVideo)}
+                        className="relative w-full max-w-[500px] aspect-video rounded-[30px] cursor-pointer transition-transform hover:scale-[1.03] duration-500 overflow-hidden flex items-center justify-center group shadow-xl border border-white/20 bg-black"
+                    >
+                        <video
+                            src={launchEventVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                        />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-white/30 transition-all duration-300 mb-4">
+                                <i className="fa-solid fa-play text-white text-2xl ml-1"></i>
+                            </div>
+                            <span className="text-white font-bold text-xl sm:text-2xl tracking-[0.15em] uppercase drop-shadow-lg">
+                                The Launch
+                            </span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1397,7 +1398,7 @@ const LandingHero = () => {
                             modules={[EffectFlip, Pagination, Autoplay]}
                             slidesPerView={1}
                             pagination={{ clickable: true }}
-                            autoplay={{ delay:15000, disableOnInteraction: false }}
+                            autoplay={{ delay: 15000, disableOnInteraction: false }}
                             loop={true}
                             className="advisors-swiper !pb-14 max-w-[600px] w-full"
                         >
@@ -1841,6 +1842,27 @@ const LandingHero = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Video Modal */}
+            {selectedVideoModal && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="relative w-full max-w-5xl rounded-2xl overflow-hidden bg-black shadow-2xl">
+                        <button
+                            onClick={() => setSelectedVideoModal(null)}
+                            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-[#B47B59] transition-colors cursor-pointer"
+                        >
+                            <i className="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                        <video
+                            src={selectedVideoModal}
+                            autoPlay
+                            controls
+                            playsInline
+                            className="w-full h-auto max-h-[85vh] object-contain"
+                        />
+                    </div>
+                </div>
+            )}
         </>
     );
 };
